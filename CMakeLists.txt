@@ -28,6 +28,7 @@ target_include_directories(glasswindow PRIVATE
     ${HYPRLANG_INCLUDE_DIRS}
     ${HYPRUTILS_INCLUDE_DIRS}
     ${PIXMAN_INCLUDE_DIRS}
+    /usr/include/pixman-1
     ${DRM_INCLUDE_DIRS}
     /usr/include
     /usr/local/include
