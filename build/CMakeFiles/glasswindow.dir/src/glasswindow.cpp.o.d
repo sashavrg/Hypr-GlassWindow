@@ -2,21 +2,21 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: \
  /home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/src/glasswindow.cpp \
  /usr/include/stdc-predef.h \
  /home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/src/../include/glasswindow.hpp \
- /usr/include/hyprland/src/Compositor.hpp /usr/include/sys/resource.h \
- /usr/include/features.h /usr/include/features-time64.h \
- /usr/include/bits/wordsize.h /usr/include/bits/timesize.h \
- /usr/include/sys/cdefs.h /usr/include/bits/long-double.h \
- /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
- /usr/include/bits/resource.h /usr/include/bits/types.h \
- /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
- /usr/include/bits/types/struct_timeval.h \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/Compositor.hpp \
+ /usr/include/sys/resource.h /usr/include/features.h \
+ /usr/include/features-time64.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/resource.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/bits/time64.h /usr/include/bits/types/struct_timeval.h \
  /usr/include/bits/types/struct_rusage.h \
- /usr/include/hyprland/src/managers/XWaylandManager.hpp \
- /usr/include/hyprland/src/defines.hpp \
- /usr/include/hyprland/src/includes.hpp /usr/include/getopt.h \
- /usr/include/bits/getopt_core.h /usr/include/bits/getopt_ext.h \
- /usr/include/libinput.h /usr/include/c++/15/stdlib.h \
- /usr/include/c++/15/cstdlib \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/XWaylandManager.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../defines.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../includes.hpp \
+ /usr/include/getopt.h /usr/include/bits/getopt_core.h \
+ /usr/include/bits/getopt_ext.h /usr/include/libinput.h \
+ /usr/include/c++/15/stdlib.h /usr/include/c++/15/cstdlib \
  /usr/include/c++/15/x86_64-redhat-linux/bits/c++config.h \
  /usr/include/c++/15/x86_64-redhat-linux/bits/os_defines.h \
  /usr/include/c++/15/x86_64-redhat-linux/bits/cpu_defines.h \
@@ -118,8 +118,9 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: \
  /usr/include/c++/15/tr1/riemann_zeta.tcc /usr/include/inttypes.h \
  /usr/include/wayland-version.h /usr/include/GLES3/gl32.h \
  /usr/include/GLES3/gl3platform.h /usr/include/KHR/khrplatform.h \
- /usr/include/GLES3/gl3ext.h /usr/include/hyprland/src/SharedDefs.hpp \
- /usr/include/hyprland/src/helpers/math/Math.hpp \
+ /usr/include/GLES3/gl3ext.h \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../SharedDefs.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../helpers/math/Math.hpp \
  /usr/include/wayland-server-protocol.h /usr/include/wayland-server.h \
  /usr/include/wayland-server-core.h \
  /usr/include/wayland-server-protocol.h \
@@ -236,9 +237,9 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: \
  /usr/include/c++/15/algorithm /usr/include/c++/15/bits/ranges_algo.h \
  /usr/include/c++/15/pstl/glue_algorithm_defs.h \
  /usr/include/c++/15/pstl/execution_defs.h \
- /usr/include/hyprland/src/debug/Log.hpp /usr/include/c++/15/iostream \
- /usr/include/c++/15/istream /usr/include/c++/15/bits/istream.tcc \
- /usr/include/c++/15/fstream \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../debug/Log.hpp \
+ /usr/include/c++/15/iostream /usr/include/c++/15/istream \
+ /usr/include/c++/15/bits/istream.tcc /usr/include/c++/15/fstream \
  /usr/include/c++/15/x86_64-redhat-linux/bits/basic_file.h \
  /usr/include/c++/15/x86_64-redhat-linux/bits/c++io.h \
  /usr/include/c++/15/bits/fstream.tcc /usr/include/c++/15/chrono \
@@ -254,11 +255,12 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: \
  /usr/include/c++/15/bits/quoted_string.h /usr/include/c++/15/mutex \
  /usr/include/c++/15/bits/std_mutex.h \
  /usr/include/c++/15/bits/unique_lock.h \
- /usr/include/hyprland/src/helpers/Color.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../helpers/Color.hpp \
  /usr/include/hyprgraphics/color/Color.hpp \
- /usr/include/hyprland/src/macros.hpp /usr/include/c++/15/print \
- /usr/include/c++/15/utility /usr/include/c++/15/bits/stl_relops.h \
- /usr/include/hyprland/src/helpers/memory/Memory.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../helpers/../macros.hpp \
+ /usr/include/c++/15/print /usr/include/c++/15/utility \
+ /usr/include/c++/15/bits/stl_relops.h \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../helpers/../helpers/memory/Memory.hpp \
  /usr/include/hyprutils/memory/WeakPtr.hpp \
  /usr/include/hyprutils/memory/SharedPtr.hpp \
  /usr/include/hyprutils/memory/ImplBase.hpp /usr/include/c++/15/memory \
@@ -280,8 +282,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: \
  /usr/include/c++/15/bits/out_ptr.h \
  /usr/include/c++/15/pstl/glue_memory_defs.h \
  /usr/include/hyprutils/memory/UniquePtr.hpp \
- /usr/include/hyprland/src/desktop/DesktopTypes.hpp \
- /usr/include/hyprland/src/managers/KeybindManager.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../desktop/DesktopTypes.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/KeybindManager.hpp \
  /usr/include/c++/15/set /usr/include/c++/15/bits/stl_tree.h \
  /usr/include/c++/15/bits/stl_set.h \
  /usr/include/c++/15/bits/stl_multiset.h \
@@ -289,58 +291,58 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: \
  /usr/include/xkbcommon/xkbcommon-names.h \
  /usr/include/xkbcommon/xkbcommon-keysyms.h \
  /usr/include/xkbcommon/xkbcommon-compat.h \
- /usr/include/hyprland/src/devices/IPointer.hpp \
- /usr/include/hyprland/src/devices/IHID.hpp \
- /usr/include/hyprland/src/helpers/signal/Signal.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../devices/IPointer.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../devices/IHID.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../devices/../helpers/signal/Signal.hpp \
  /usr/include/hyprutils/signal/Signal.hpp \
  /usr/include/hyprutils/signal/Listener.hpp \
- /usr/include/hyprland/src/managers/eventLoop/EventLoopTimer.hpp \
- /usr/include/hyprland/src/helpers/time/Time.hpp \
- /usr/include/hyprland/src/helpers/time/Timer.hpp \
- /usr/include/hyprland/src/managers/SessionLockManager.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/eventLoop/EventLoopTimer.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/eventLoop/../../helpers/time/Time.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/../helpers/time/Timer.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/managers/SessionLockManager.hpp \
  /usr/include/c++/15/unordered_set \
  /usr/include/c++/15/bits/unordered_set.h \
- /usr/include/hyprland/src/desktop/Window.hpp \
- /usr/include/hyprland/src/config/ConfigDataValues.hpp \
- /usr/include/hyprland/src/helpers/varlist/VarList.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/Window.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../config/ConfigDataValues.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../config/../helpers/varlist/VarList.hpp \
  /usr/include/hyprutils/string/VarList.hpp /usr/include/c++/15/map \
  /usr/include/c++/15/bits/stl_map.h \
  /usr/include/c++/15/bits/stl_multimap.h \
- /usr/include/hyprland/src/helpers/AnimatedVariable.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../helpers/AnimatedVariable.hpp \
  /usr/include/hyprutils/animation/AnimatedVariable.hpp \
  /usr/include/hyprutils/animation/AnimationConfig.hpp \
  /usr/include/hyprutils/animation/AnimationManager.hpp \
  /usr/include/hyprutils/animation/BezierCurve.hpp \
- /usr/include/hyprland/src/helpers/TagKeeper.hpp \
- /usr/include/hyprland/src/render/decorations/IHyprWindowDecoration.hpp \
- /usr/include/hyprland/src/render/decorations/DecorationPositioner.hpp \
- /usr/include/hyprland/src/render/Transformer.hpp \
- /usr/include/hyprland/src/render/Framebuffer.hpp \
- /usr/include/hyprland/src/render/Texture.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../helpers/TagKeeper.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../render/decorations/IHyprWindowDecoration.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../render/decorations/DecorationPositioner.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../render/Transformer.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../render/Framebuffer.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../render/Texture.hpp \
  /usr/include/aquamarine/buffer/Buffer.hpp \
  /usr/include/aquamarine/misc/Attachment.hpp \
  /usr/include/c++/15/typeindex \
- /usr/include/hyprland/src/render/pass/SurfacePassElement.hpp \
- /usr/include/hyprland/src/render/pass/PassElement.hpp \
- /usr/include/hyprland/src/desktop/Popup.hpp \
- /usr/include/hyprland/src/desktop/Subsurface.hpp \
- /usr/include/hyprland/src/desktop/WLSurface.hpp \
- /usr/include/hyprland/src/desktop/Workspace.hpp \
- /usr/include/hyprland/src/helpers/MiscFunctions.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../render/pass/SurfacePassElement.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../render/pass/PassElement.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/Popup.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/Subsurface.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/WLSurface.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/Workspace.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../helpers/MiscFunctions.hpp \
  /usr/include/wayland-server.h /usr/include/c++/15/expected \
  /usr/include/hyprutils/os/FileDescriptor.hpp /usr/include/fcntl.h \
  /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h \
  /usr/include/bits/types/struct_iovec.h /usr/include/linux/falloc.h \
  /usr/include/bits/stat.h /usr/include/bits/struct_stat.h \
- /usr/include/hyprland/src/desktop/WindowRule.hpp \
- /usr/include/hyprland/src/desktop/Rule.hpp \
- /usr/include/hyprland/src/desktop/WindowOverridableVar.hpp \
- /usr/include/hyprland/src/config/ConfigValue.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/WindowRule.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/Rule.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/WindowOverridableVar.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../config/ConfigValue.hpp \
  /usr/include/hyprlang.hpp \
- /usr/include/hyprland/src/protocols/types/ContentType.hpp \
- /usr/include/hyprland/protocols/content-type-v1.hpp \
- /usr/include/hyprland/src/protocols/types/ColorManagement.hpp \
- /usr/include/hyprland/protocols/color-management-v1.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/desktop/../protocols/types/ContentType.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols/content-type-v1.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/protocols/types/ColorManagement.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols/color-management-v1.hpp \
  /usr/include/aquamarine/backend/Backend.hpp \
  /usr/include/c++/15/condition_variable /usr/include/c++/15/stop_token \
  /usr/include/c++/15/atomic /usr/include/c++/15/bits/std_thread.h \
@@ -357,38 +359,41 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: \
  /usr/include/aquamarine/output/Output.hpp /usr/include/xf86drmMode.h \
  /usr/include/libdrm/drm.h /usr/include/libdrm/drm_mode.h \
  /usr/include/aquamarine/allocator/Swapchain.hpp \
- /usr/include/hyprland/src/render/OpenGL.hpp \
- /usr/include/hyprland/src/helpers/Monitor.hpp /usr/include/c++/15/stack \
- /usr/include/c++/15/deque /usr/include/c++/15/bits/stl_deque.h \
- /usr/include/c++/15/bits/deque.tcc /usr/include/c++/15/bits/stl_stack.h \
- /usr/include/c++/15/ranges /usr/include/c++/15/iterator \
- /usr/include/c++/15/bits/stream_iterator.h /usr/include/c++/15/variant \
- /usr/include/c++/15/bits/elements_of.h \
- /usr/include/hyprland/src/helpers/WLClasses.hpp \
- /usr/include/hyprland/src/helpers/DamageRing.hpp \
- /usr/include/hyprland/src/helpers/Format.hpp \
- /usr/include/hyprland/src/helpers/sync/SyncTimeline.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/OpenGL.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../helpers/Monitor.hpp \
+ /usr/include/c++/15/stack /usr/include/c++/15/deque \
+ /usr/include/c++/15/bits/stl_deque.h /usr/include/c++/15/bits/deque.tcc \
+ /usr/include/c++/15/bits/stl_stack.h /usr/include/c++/15/ranges \
+ /usr/include/c++/15/iterator /usr/include/c++/15/bits/stream_iterator.h \
+ /usr/include/c++/15/variant /usr/include/c++/15/bits/elements_of.h \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../helpers/WLClasses.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../helpers/DamageRing.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../helpers/Format.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../helpers/sync/SyncTimeline.hpp \
  /usr/include/c++/15/list /usr/include/c++/15/bits/stl_list.h \
  /usr/include/c++/15/bits/list.tcc /usr/include/cairo/cairo.h \
  /usr/include/cairo/cairo-version.h /usr/include/cairo/cairo-features.h \
  /usr/include/cairo/cairo-deprecated.h \
- /usr/include/hyprland/src/render/Shader.hpp \
- /usr/include/hyprland/src/render/Renderbuffer.hpp \
- /usr/include/hyprland/src/render/pass/Pass.hpp /usr/include/EGL/egl.h \
- /usr/include/EGL/eglplatform.h /usr/include/EGL/eglext.h \
- /usr/include/GLES2/gl2ext.h \
- /usr/include/hyprland/src/debug/TracyDefines.hpp \
- /usr/include/hyprland/src/protocols/core/Compositor.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/Shader.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/Renderbuffer.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/pass/Pass.hpp \
+ /usr/include/EGL/egl.h /usr/include/EGL/eglplatform.h \
+ /usr/include/EGL/eglext.h /usr/include/GLES2/gl2ext.h \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../debug/TracyDefines.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../protocols/core/Compositor.hpp \
  /usr/include/c++/15/queue /usr/include/c++/15/bits/stl_queue.h \
- /usr/include/hyprland/src/protocols/WaylandProtocol.hpp \
- /usr/include/hyprland/protocols/wayland.hpp \
- /usr/include/hyprland/src/protocols/types/Buffer.hpp \
- /usr/include/hyprland/src/protocols/types/WLBuffer.hpp \
- /usr/include/hyprland/src/protocols/DRMSyncobj.hpp \
- /usr/include/hyprland/src/helpers/sync/SyncReleaser.hpp \
- /usr/include/hyprland/protocols/linux-drm-syncobj-v1.hpp \
- /usr/include/hyprland/src/protocols/types/SurfaceRole.hpp \
- /usr/include/hyprland/src/protocols/types/SurfaceState.hpp \
- /usr/include/hyprland/src/config/ConfigManager.hpp \
- /usr/include/hyprland/src/desktop/LayerRule.hpp \
- /usr/include/pixman-1/pixman.h
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../protocols/core/../WaylandProtocol.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols/wayland.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../protocols/core/../types/Buffer.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../protocols/core/../types/./WLBuffer.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../protocols/core/../types/../DRMSyncobj.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../protocols/core/../types/../../helpers/sync/SyncReleaser.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols/linux-drm-syncobj-v1.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../protocols/core/../types/SurfaceRole.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../protocols/core/../types/SurfaceState.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/config/ConfigManager.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/config/../desktop/LayerRule.hpp \
+ /usr/include/pixman-1/pixman.h \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/plugins/PluginAPI.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/plugins/HookSystem.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/plugins/../version.h

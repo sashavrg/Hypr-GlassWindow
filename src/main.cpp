@@ -18,6 +18,12 @@ APICALL EXPORT PLUGIN_DESCRIPTION_INFO PLUGIN_INIT(HANDLE handle) {
         throw std::runtime_error("[GlassWindow] Version mismatch");
     }
 
+    // Register config variables for the plugin
+    // 'strength' controls the intensity of the glass effect (float, default 0.8)
+    HyprlandAPI::addConfigValue(PHANDLE, "plugin:glasswindow:strength", SConfigValue{.floatValue = 0.8f});
+    // 'chromatic_aberration' enables (1) or disables (0) the effect (int, default 1)
+    HyprlandAPI::addConfigValue(PHANDLE, "plugin:glasswindow:chromatic_aberration", SConfigValue{.intValue = 1});
+
     g_glassWindow = std::make_unique<CGlassWindow>();
     g_glassWindow->init();
 
