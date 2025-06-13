@@ -29,6 +29,8 @@ target_include_directories(glasswindow PRIVATE
     ${HYPRUTILS_INCLUDE_DIRS}
     ${PIXMAN_INCLUDE_DIRS}
     ${DRM_INCLUDE_DIRS}
+    /usr/include
+    /usr/local/include
 )
 
 # Link against required libraries
