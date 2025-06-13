@@ -2,9 +2,12 @@ lib/glasswindow.so: \
   /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/crti.o \
   /usr/lib/gcc/x86_64-redhat-linux/15/crtbeginS.o \
   CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o \
+  /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/libhyprlang.so \
+  /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/libhyprutils.so \
   /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/libpixman-1.so \
   /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/libdrm.so \
-  /usr/lib64/libGL.so \
+  /usr/lib64/libGLX.so \
+  /usr/lib64/libOpenGL.so \
   /usr/lib/gcc/x86_64-redhat-linux/15/libstdc++.so \
   /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/libm.so \
   /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/libm.so \
@@ -36,11 +39,17 @@ lib/glasswindow.so: \
 
 CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o:
 
+/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/libhyprlang.so:
+
+/usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/libhyprutils.so:
+
 /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/libpixman-1.so:
 
 /usr/lib/gcc/x86_64-redhat-linux/15/../../../../lib64/libdrm.so:
 
-/usr/lib64/libGL.so:
+/usr/lib64/libGLX.so:
+
+/usr/lib64/libOpenGL.so:
 
 /usr/lib/gcc/x86_64-redhat-linux/15/libstdc++.so:
 

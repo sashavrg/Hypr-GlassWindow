@@ -4,7 +4,7 @@
 # compile CXX with /usr/lib64/ccache/c++
 CXX_DEFINES = -Dglasswindow_EXPORTS
 
-CXX_INCLUDES = -I/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/include -I/usr/include/hyprland/protocols -I/usr/include/hyprland -I/usr/include/pixman-1 -I/usr/include/libdrm -I/usr/include/hyprland/src -I/usr/include/hyprutils
+CXX_INCLUDES = -I/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/include -I/usr/include/hyprland/protocols -I/usr/include/hyprland -I/usr/include/pixman-1 -I/usr/include/libdrm
 
 CXX_FLAGS = -std=gnu++23 -fPIC
 

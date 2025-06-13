@@ -96,7 +96,8 @@ glasswindow_EXTERNAL_OBJECTS =
 lib/glasswindow.so: CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o
 lib/glasswindow.so: CMakeFiles/glasswindow.dir/build.make
 lib/glasswindow.so: CMakeFiles/glasswindow.dir/compiler_depend.ts
-lib/glasswindow.so: /usr/lib64/libGL.so
+lib/glasswindow.so: /usr/lib64/libGLX.so
+lib/glasswindow.so: /usr/lib64/libOpenGL.so
 lib/glasswindow.so: CMakeFiles/glasswindow.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library lib/glasswindow.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/glasswindow.dir/link.txt --verbose=$(VERBOSE)

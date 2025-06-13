@@ -1,10 +1,14 @@
 [repository]
-name = "GlassWindow"
-authors = ["YourName"]
+name = "Hypr-GlassWindow"
+authors = ["sashavrg"]
+commit_pins = [
+    # [Hyprland commit, Hypr-GlassWindow commit]
+    # ["<hyprland_commit>", "<plugin_commit>"]
+]
 
-[glasswindow]
+[Hypr-GlassWindow]
 description = "A glass shader window effect plugin for Hyprland"
-authors = ["YourName"]
+authors = ["sashavrg"]
 output = "build/lib/glasswindow.so"
 build = [
     "cmake -Bbuild -H.",

@@ -1,1 +1,1 @@
-/usr/lib64/ccache/c++ -fPIC -Wl,--dependency-file=CMakeFiles/glasswindow.dir/link.d -shared -Wl,-soname,glasswindow.so -o lib/glasswindow.so CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o  -lpixman-1 -ldrm /usr/lib64/libGL.so
+/usr/lib64/ccache/c++ -fPIC -Wl,--dependency-file=CMakeFiles/glasswindow.dir/link.d -shared -Wl,-soname,glasswindow.so -o lib/glasswindow.so CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o  -lhyprlang -lhyprutils -lpixman-1 -ldrm /usr/lib64/libGLX.so /usr/lib64/libOpenGL.so
