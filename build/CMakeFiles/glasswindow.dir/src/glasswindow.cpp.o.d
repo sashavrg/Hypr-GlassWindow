@@ -392,9 +392,14 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: \
  /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols/linux-drm-syncobj-v1.hpp \
  /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../protocols/core/../types/SurfaceRole.hpp \
  /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../protocols/core/../types/SurfaceState.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/Renderer.hpp \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/render/../desktop/LayerSurface.hpp \
  /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/config/ConfigManager.hpp \
  /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/config/../desktop/LayerRule.hpp \
  /usr/include/pixman-1/pixman.h \
  /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/plugins/PluginAPI.hpp \
  /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/plugins/HookSystem.hpp \
- /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/plugins/../version.h
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/plugins/../version.h \
+ /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/helpers/fs/FsUtils.hpp \
+ /usr/include/hyprutils/string/String.hpp \
+ /usr/include/hyprutils/path/Path.hpp

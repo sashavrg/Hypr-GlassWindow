@@ -18,6 +18,11 @@ set(SOURCES
     src/glasswindow.cpp
 )
 
+# Add shader files
+set(SHADER_FILES
+    shaders/glass.frag
+)
+
 # Create the plugin library
 add_library(glasswindow SHARED ${SOURCES})
 
@@ -29,9 +34,9 @@ target_include_directories(glasswindow PRIVATE
     ${HYPRUTILS_INCLUDE_DIRS}
     ${PIXMAN_INCLUDE_DIRS}
     /usr/include/pixman-1
-    ${DRM_INCLUDE_DIRS}
     /usr/include
     /usr/local/include
+    ${DRM_INCLUDE_DIRS}
 )
 
 # Link against required libraries
@@ -54,4 +59,9 @@ set_target_properties(glasswindow PROPERTIES
 # Install rules
 install(TARGETS glasswindow
     LIBRARY DESTINATION lib/hyprland/plugins
+)
+
+# Install shader files
+install(FILES ${SHADER_FILES}
+    DESTINATION share/hyprland/plugins/glasswindow/shaders
 ) 
