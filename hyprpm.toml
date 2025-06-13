@@ -1,0 +1,12 @@
+[repository]
+name = "GlassWindow"
+authors = ["YourName"]
+
+[glasswindow]
+description = "A glass shader window effect plugin for Hyprland"
+authors = ["YourName"]
+output = "build/lib/glasswindow.so"
+build = [
+    "cmake -Bbuild -H.",
+    "cmake --build build"
+] 
