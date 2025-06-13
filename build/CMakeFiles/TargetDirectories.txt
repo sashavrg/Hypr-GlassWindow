@@ -1,0 +1,7 @@
+/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/build/CMakeFiles/glasswindow.dir
+/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/build/CMakeFiles/edit_cache.dir
+/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/build/CMakeFiles/rebuild_cache.dir
+/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/build/CMakeFiles/list_install_components.dir
+/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/build/CMakeFiles/install.dir
+/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/build/CMakeFiles/install/local.dir
+/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/build/CMakeFiles/install/strip.dir
