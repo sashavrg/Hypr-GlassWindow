@@ -180,6 +180,7 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
   /usr/include/c++/15/bits/cxxabi_forced.h \
   /usr/include/c++/15/bits/cxxabi_init_exception.h \
   /usr/include/c++/15/bits/deque.tcc \
+  /usr/include/c++/15/bits/elements_of.h \
   /usr/include/c++/15/bits/enable_special_members.h \
   /usr/include/c++/15/bits/erase_if.h \
   /usr/include/c++/15/bits/exception.h \
@@ -208,14 +209,17 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
   /usr/include/c++/15/bits/max_size_type.h \
   /usr/include/c++/15/bits/memory_resource.h \
   /usr/include/c++/15/bits/memoryfwd.h \
+  /usr/include/c++/15/bits/mofunc_impl.h \
   /usr/include/c++/15/bits/monostate.h \
   /usr/include/c++/15/bits/move.h \
+  /usr/include/c++/15/bits/move_only_function.h \
   /usr/include/c++/15/bits/nested_exception.h \
   /usr/include/c++/15/bits/new_allocator.h \
   /usr/include/c++/15/bits/node_handle.h \
   /usr/include/c++/15/bits/ostream.h \
   /usr/include/c++/15/bits/ostream.tcc \
   /usr/include/c++/15/bits/ostream_insert.h \
+  /usr/include/c++/15/bits/out_ptr.h \
   /usr/include/c++/15/bits/parse_numbers.h \
   /usr/include/c++/15/bits/postypes.h \
   /usr/include/c++/15/bits/predefined_ops.h \
@@ -264,6 +268,7 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
   /usr/include/c++/15/bits/stl_tree.h \
   /usr/include/c++/15/bits/stl_uninitialized.h \
   /usr/include/c++/15/bits/stl_vector.h \
+  /usr/include/c++/15/bits/stream_iterator.h \
   /usr/include/c++/15/bits/streambuf.tcc \
   /usr/include/c++/15/bits/streambuf_iterator.h \
   /usr/include/c++/15/bits/string_view.tcc \
@@ -320,6 +325,7 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
   /usr/include/c++/15/iosfwd \
   /usr/include/c++/15/iostream \
   /usr/include/c++/15/istream \
+  /usr/include/c++/15/iterator \
   /usr/include/c++/15/limits \
   /usr/include/c++/15/list \
   /usr/include/c++/15/locale \
@@ -337,6 +343,7 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
   /usr/include/c++/15/pstl/glue_memory_defs.h \
   /usr/include/c++/15/pstl/pstl_config.h \
   /usr/include/c++/15/queue \
+  /usr/include/c++/15/ranges \
   /usr/include/c++/15/ratio \
   /usr/include/c++/15/semaphore \
   /usr/include/c++/15/set \
@@ -545,6 +552,48 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
   /usr/lib/gcc/x86_64-redhat-linux/15/include/stdint.h \
   /usr/lib/gcc/x86_64-redhat-linux/15/include/syslimits.h
 
+lib/glasswindow.so: /lib64/ld-linux-x86-64.so.2 \
+  /lib64/libc.so.6 \
+  /lib64/libgcc_s.so.1 \
+  /lib64/libm.so.6 \
+  /lib64/libmvec.so.1 \
+  /usr/lib64/crti.o \
+  /usr/lib64/crtn.o \
+  /usr/lib64/libc.so \
+  /usr/lib64/libdrm.so \
+  /usr/lib64/libm.so \
+  /usr/lib64/libpixman-1.so \
+  /usr/lib/gcc/x86_64-redhat-linux/15/crtbeginS.o \
+  /usr/lib/gcc/x86_64-redhat-linux/15/crtendS.o \
+  /usr/lib/gcc/x86_64-redhat-linux/15/libgcc.a \
+  /usr/lib/gcc/x86_64-redhat-linux/15/libgcc_s.so \
+  /usr/lib/gcc/x86_64-redhat-linux/15/libstdc++.so \
+  /usr/lib64/libGL.so \
+  /usr/lib64/libc_nonshared.a \
+  CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o
+
+
+CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o:
+
+/usr/lib/gcc/x86_64-redhat-linux/15/libstdc++.so:
+
+/usr/lib/gcc/x86_64-redhat-linux/15/libgcc.a:
+
+/usr/lib/gcc/x86_64-redhat-linux/15/crtbeginS.o:
+
+/usr/lib64/libm.so:
+
+/usr/lib64/libdrm.so:
+
+/usr/lib64/libc.so:
+
+/usr/lib/gcc/x86_64-redhat-linux/15/include/stddef.h:
+
+/usr/lib/gcc/x86_64-redhat-linux/15/include/stdarg.h:
+
+/usr/include/xkbcommon/xkbcommon-names.h:
+
+/usr/include/xkbcommon/xkbcommon-keysyms.h:
 
 /usr/include/c++/15/bits/unicode.h:
 
@@ -594,6 +643,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/c++/15/bits/ranges_algo.h:
 
+/usr/include/c++/15/bits/mofunc_impl.h:
+
 /usr/include/c++/15/bits/ranges_algobase.h:
 
 /usr/include/asm/unistd.h:
@@ -601,8 +652,6 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/c++/15/bits/postypes.h:
 
 /usr/include/bits/local_lim.h:
-
-/usr/include/c++/15/bits/ostream.tcc:
 
 /usr/include/c++/15/bits/ranges_base.h:
 
@@ -624,6 +673,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/c++/15/debug/debug.h:
 
+/lib64/ld-linux-x86-64.so.2:
+
 /usr/include/c++/15/bits/istream.tcc:
 
 /usr/include/c++/15/bits/ios_base.h:
@@ -633,6 +684,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/bits/cpu-set.h:
 
 /usr/include/c++/15/bits/hashtable_policy.h:
+
+/lib64/libmvec.so.1:
 
 /usr/include/c++/15/ext/string_conversions.h:
 
@@ -674,6 +727,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/bits/types/timer_t.h:
 
+/usr/lib64/libc_nonshared.a:
+
 /usr/include/c++/15/bits/stl_heap.h:
 
 /usr/include/c++/15/bits/stl_iterator_base_funcs.h:
@@ -686,13 +741,23 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/bits/wchar.h:
 
+/usr/lib64/libGL.so:
+
 /usr/include/c++/15/bits/stl_tree.h:
+
+/usr/include/c++/15/bits/ostream.tcc:
+
+/usr/include/c++/15/bits/elements_of.h:
 
 /usr/include/c++/15/bits/deque.tcc:
 
 /usr/include/c++/15/bits/stl_tempbuf.h:
 
 /usr/include/hyprutils/math/Misc.hpp:
+
+/usr/lib/gcc/x86_64-redhat-linux/15/include/stdbool.h:
+
+/usr/include/c++/15/bits/basic_string.tcc:
 
 /usr/include/c++/15/bits/streambuf.tcc:
 
@@ -713,6 +778,10 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/c++/15/bits/allocator.h:
 
 /usr/include/asm-generic/posix_types.h:
+
+/usr/include/xkbcommon/xkbcommon.h:
+
+/usr/include/hyprland/src/helpers/Color.hpp:
 
 /usr/include/c++/15/bits/align.h:
 
@@ -742,8 +811,6 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/bits/waitflags.h:
 
-/usr/include/c++/15/bits/stl_queue.h:
-
 /usr/include/bits/uio_lim.h:
 
 /usr/include/c++/15/bits/concept_check.h:
@@ -764,6 +831,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/c++/15/bits/unicode-data.h:
 
+/usr/include/c++/15/bits/out_ptr.h:
+
 /usr/include/hyprland/src/devices/IHID.hpp:
 
 /usr/include/hyprutils/memory/WeakPtr.hpp:
@@ -771,8 +840,6 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/c++/15/list:
 
 /usr/include/bits/types/struct_timeval.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/15/include/stddef.h:
 
 /usr/include/bits/types/struct_timespec.h:
 
@@ -892,10 +959,6 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/c++/15/bits/stl_raw_storage_iter.h:
 
-/usr/include/c++/15/bits/basic_string.tcc:
-
-/usr/lib/gcc/x86_64-redhat-linux/15/include/stdbool.h:
-
 /usr/include/asm/errno.h:
 
 /usr/include/bits/stdint-uintn.h:
@@ -1000,6 +1063,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/bits/sigcontext.h:
 
+/lib64/libm.so.6:
+
 /usr/include/c++/15/bits/basic_ios.tcc:
 
 /usr/include/c++/15/pstl/pstl_config.h:
@@ -1017,6 +1082,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/sys/time.h:
 
 /usr/include/hyprland/src/helpers/TagKeeper.hpp:
+
+/usr/lib64/crtn.o:
 
 /usr/include/aquamarine/allocator/Allocator.hpp:
 
@@ -1041,6 +1108,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/sys/single_threaded.h:
 
 /usr/include/asm-generic/errno.h:
+
+/usr/lib/gcc/x86_64-redhat-linux/15/libgcc_s.so:
 
 /usr/include/asm/ioctl.h:
 
@@ -1126,6 +1195,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/bits/types/__mbstate_t.h:
 
+/usr/include/c++/15/bits/stream_iterator.h:
+
 /usr/include/bits/struct_mutex.h:
 
 /usr/include/bits/mathcalls-macros.h:
@@ -1162,6 +1233,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/linux/posix_types.h:
 
+/usr/lib64/crti.o:
+
 /usr/include/c++/15/bit:
 
 /usr/include/bits/types/__fpos64_t.h:
@@ -1176,7 +1249,11 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/hyprland/src/protocols/types/SurfaceState.hpp:
 
+/usr/include/c++/15/bits/stl_queue.h:
+
 /usr/include/c++/15/bits/stl_set.h:
+
+/lib64/libgcc_s.so.1:
 
 /usr/include/c++/15/bits/stl_stack.h:
 
@@ -1218,6 +1295,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/semaphore.h:
 
+/usr/lib/gcc/x86_64-redhat-linux/15/crtendS.o:
+
 /usr/include/c++/15/concepts:
 
 /usr/include/linux/falloc.h:
@@ -1229,6 +1308,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/asm-generic/int-ll64.h:
 
 /usr/include/c++/15/csignal:
+
+/usr/lib64/libpixman-1.so:
 
 /usr/include/c++/15/backward/binders.h:
 
@@ -1257,6 +1338,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/c++/15/bits/uniform_int_dist.h:
 
 /usr/include/c++/15/expected:
+
+/usr/include/c++/15/bits/move_only_function.h:
 
 /usr/include/c++/15/ext/concurrence.h:
 
@@ -1294,6 +1377,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/hyprland/src/render/OpenGL.hpp:
 
+/usr/include/c++/15/iterator:
+
 /usr/include/c++/15/limits:
 
 /usr/include/wayland-version.h:
@@ -1321,6 +1406,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/c++/15/pstl/execution_defs.h:
 
 /usr/include/c++/15/queue:
+
+/usr/include/c++/15/ranges:
 
 /usr/include/c++/15/bits/stl_multimap.h:
 
@@ -1383,6 +1470,8 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/c++/15/x86_64-redhat-linux/bits/c++io.h:
 
 /usr/include/hyprutils/memory/SharedPtr.hpp:
+
+/lib64/libc.so.6:
 
 /usr/include/c++/15/bits/stl_uninitialized.h:
 
@@ -1496,8 +1585,6 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 
 /usr/include/hyprland/src/helpers/sync/SyncTimeline.hpp:
 
-/usr/include/xkbcommon/xkbcommon-keysyms.h:
-
 /usr/include/bits/types/__FILE.h:
 
 /usr/include/hyprland/src/helpers/time/Time.hpp:
@@ -1513,8 +1600,6 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/c++/15/pstl/glue_memory_defs.h:
 
 /usr/include/hyprland/src/macros.hpp:
-
-/usr/include/xkbcommon/xkbcommon-names.h:
 
 /usr/include/hyprland/src/managers/KeybindManager.hpp:
 
@@ -1625,9 +1710,3 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: /home/svergolini/Documents/Git
 /usr/include/wayland-util.h:
 
 /usr/include/xf86drmMode.h:
-
-/usr/include/hyprland/src/helpers/Color.hpp:
-
-/usr/include/xkbcommon/xkbcommon.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/15/include/stdarg.h:
