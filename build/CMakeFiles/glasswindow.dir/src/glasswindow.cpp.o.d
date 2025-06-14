@@ -402,4 +402,15 @@ CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o: \
  /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/plugins/../version.h \
  /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/src/helpers/fs/FsUtils.hpp \
  /usr/include/hyprutils/string/String.hpp \
- /usr/include/hyprutils/path/Path.hpp
+ /usr/include/hyprutils/path/Path.hpp /usr/include/c++/15/regex \
+ /usr/include/c++/15/bitset /usr/include/c++/15/bits/regex_constants.h \
+ /usr/include/c++/15/bits/regex_error.h \
+ /usr/include/c++/15/bits/regex_automaton.h \
+ /usr/include/c++/15/bits/regex_automaton.tcc \
+ /usr/include/c++/15/bits/regex_scanner.h \
+ /usr/include/c++/15/bits/regex_scanner.tcc \
+ /usr/include/c++/15/bits/regex_compiler.h \
+ /usr/include/c++/15/bits/regex_compiler.tcc \
+ /usr/include/c++/15/bits/regex.h /usr/include/c++/15/bits/regex.tcc \
+ /usr/include/c++/15/bits/regex_executor.h \
+ /usr/include/c++/15/bits/regex_executor.tcc

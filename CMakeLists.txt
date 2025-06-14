@@ -4,6 +4,9 @@ project(Hypr-GlassWindow)
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+# Add necessary compiler flags
+add_compile_options(-fPIC -Wall -Wextra)
+
 # Find required packages
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(HYPRLAND REQUIRED hyprland)
@@ -37,6 +40,12 @@ target_include_directories(glasswindow PRIVATE
     /usr/include
     /usr/local/include
     ${DRM_INCLUDE_DIRS}
+)
+
+# Add compile definitions
+target_compile_definitions(glasswindow PRIVATE
+    PLUGIN_API_VERSION=${HYPRLAND_API_VERSION}
+    HYPRLAND_API_VERSION=${HYPRLAND_API_VERSION}
 )
 
 # Link against required libraries

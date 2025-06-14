@@ -12,289 +12,223 @@
 #include <vector>
 #include <hyprutils/string/String.hpp>
 #include <hyprutils/path/Path.hpp>
-#include <format>
+#include <regex>
 
 extern HANDLE PHANDLE;
 
-const std::vector<const char*> ASSET_PATHS = {
-#ifdef DATAROOTDIR
-    DATAROOTDIR,
-#endif
-    "/usr/share",
-    "/usr/local/share",
-};
+// Plugin metadata
+static const char* PLUGIN_NAME = "glasswindow";
+static const char* PLUGIN_VERSION = "1.0.0";
+static const char* PLUGIN_AUTHOR = "Your Name";
+static const char* PLUGIN_DESCRIPTION = "Adds glass effect to windows";
 
-static void logShaderError(const GLuint& shader, bool program, bool silent = false) {
-    GLint maxLength = 0;
-    if (program)
-        glGetProgramiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
-    else
-        glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &maxLength);
+// Configuration keys
+static const char* CONFIG_STRENGTH = "plugin:glasswindow:strength";
+static const char* CONFIG_BLUR = "plugin:glasswindow:blur_radius";
+static const char* CONFIG_CHROMATIC = "plugin:glasswindow:chromatic";
+static const char* CONFIG_CHROMATIC_STRENGTH = "plugin:glasswindow:chromatic_strength";
+static const char* CONFIG_BRIGHTNESS = "plugin:glasswindow:brightness";
+static const char* CONFIG_CONTRAST = "plugin:glasswindow:contrast";
+static const char* CONFIG_SATURATION = "plugin:glasswindow:saturation";
+static const char* CONFIG_RULES = "plugin:glasswindow:rules";
 
-    std::vector<GLchar> errorLog(maxLength);
-    if (program)
-        glGetProgramInfoLog(shader, maxLength, nullptr, errorLog.data());
-    else
-        glGetShaderInfoLog(shader, maxLength, nullptr, errorLog.data());
-    std::string errorStr(errorLog.begin(), errorLog.end());
-
-    const auto FULLERROR = (program ? "Shader parser: Error linking program:" : "Shader parser: Error compiling shader: ") + errorStr;
-
-    Debug::log(ERR, "Failed to link shader: {}", FULLERROR);
-
-    if (!silent)
-        g_pConfigManager->addParseError(FULLERROR);
+// SGlassConfig implementation
+bool SGlassConfig::validate() const {
+    if (strength < MIN_STRENGTH || strength > MAX_STRENGTH) return false;
+    if (blur_radius < MIN_BLUR || blur_radius > MAX_BLUR) return false;
+    if (chromatic_strength < MIN_CHROMATIC_STRENGTH || chromatic_strength > MAX_CHROMATIC_STRENGTH) return false;
+    if (brightness < MIN_BRIGHTNESS || brightness > MAX_BRIGHTNESS) return false;
+    if (contrast < MIN_CONTRAST || contrast > MAX_CONTRAST) return false;
+    if (saturation < MIN_SATURATION || saturation > MAX_SATURATION) return false;
+    return true;
 }
 
-// OpenGL helper functions
-static GLuint compileShader(const GLuint& type, std::string src, bool dynamic, bool silent) {
-    auto shader = glCreateShader(type);
-    auto shaderSource = src.c_str();
-    glShaderSource(shader, 1, (const GLchar**)&shaderSource, nullptr);
-    glCompileShader(shader);
+void SGlassConfig::clampValues() {
+    strength = std::clamp(strength, MIN_STRENGTH, MAX_STRENGTH);
+    blur_radius = std::clamp(blur_radius, MIN_BLUR, MAX_BLUR);
+    chromatic_strength = std::clamp(chromatic_strength, MIN_CHROMATIC_STRENGTH, MAX_CHROMATIC_STRENGTH);
+    brightness = std::clamp(brightness, MIN_BRIGHTNESS, MAX_BRIGHTNESS);
+    contrast = std::clamp(contrast, MIN_CONTRAST, MAX_CONTRAST);
+    saturation = std::clamp(saturation, MIN_SATURATION, MAX_SATURATION);
+}
 
-    GLint ok;
-    glGetShaderiv(shader, GL_COMPILE_STATUS, &ok);
+// ShaderHolder implementation
+void ShaderHolder::reloadShaders() {
+    Destroy();
+    Init();
+}
 
-    if (dynamic) {
-        if (ok == GL_FALSE) {
-            logShaderError(shader, false, silent);
-            return 0;
+bool ShaderHolder::validateShaders() const {
+    return CM.program && RGBA.program && RGBX.program && EXT.program;
+}
+
+// CGlassWindow implementation
+void CGlassWindow::registerConfig() {
+    HyprlandAPI::addConfigValue(PHANDLE, CONFIG_STRENGTH, SConfigValue{.floatValue = m_config.strength});
+    HyprlandAPI::addConfigValue(PHANDLE, CONFIG_BLUR, SConfigValue{.intValue = m_config.blur_radius});
+    HyprlandAPI::addConfigValue(PHANDLE, CONFIG_CHROMATIC, SConfigValue{.intValue = m_config.chromatic});
+    HyprlandAPI::addConfigValue(PHANDLE, CONFIG_CHROMATIC_STRENGTH, SConfigValue{.floatValue = m_config.chromatic_strength});
+    HyprlandAPI::addConfigValue(PHANDLE, CONFIG_BRIGHTNESS, SConfigValue{.floatValue = m_config.brightness});
+    HyprlandAPI::addConfigValue(PHANDLE, CONFIG_CONTRAST, SConfigValue{.floatValue = m_config.contrast});
+    HyprlandAPI::addConfigValue(PHANDLE, CONFIG_SATURATION, SConfigValue{.floatValue = m_config.saturation});
+    HyprlandAPI::addConfigValue(PHANDLE, CONFIG_RULES, SConfigValue{.arrayValue = m_config.rules});
+}
+
+void CGlassWindow::reloadConfig() {
+    try {
+        auto* config = HyprlandAPI::getConfigValue(PHANDLE, CONFIG_STRENGTH);
+        if (config) m_config.strength = config->floatValue;
+        
+        config = HyprlandAPI::getConfigValue(PHANDLE, CONFIG_BLUR);
+        if (config) m_config.blur_radius = config->intValue;
+        
+        config = HyprlandAPI::getConfigValue(PHANDLE, CONFIG_CHROMATIC);
+        if (config) m_config.chromatic = config->intValue;
+        
+        config = HyprlandAPI::getConfigValue(PHANDLE, CONFIG_CHROMATIC_STRENGTH);
+        if (config) m_config.chromatic_strength = config->floatValue;
+        
+        config = HyprlandAPI::getConfigValue(PHANDLE, CONFIG_BRIGHTNESS);
+        if (config) m_config.brightness = config->floatValue;
+        
+        config = HyprlandAPI::getConfigValue(PHANDLE, CONFIG_CONTRAST);
+        if (config) m_config.contrast = config->floatValue;
+        
+        config = HyprlandAPI::getConfigValue(PHANDLE, CONFIG_SATURATION);
+        if (config) m_config.saturation = config->floatValue;
+        
+        config = HyprlandAPI::getConfigValue(PHANDLE, CONFIG_RULES);
+        if (config) m_config.rules = config->arrayValue;
+
+        m_config.clampValues();
+        if (!m_config.validate()) {
+            Debug::log(ERR, "GlassWindow: Invalid configuration values detected");
+            return;
         }
-    } else {
-        if (ok != GL_TRUE)
-            logShaderError(shader, false);
-        RASSERT(ok != GL_FALSE, "compileShader() failed! GL_COMPILE_STATUS not OK!");
-    }
 
-    return shader;
+        updateShaderUniforms();
+    } catch (const std::exception& e) {
+        Debug::log(ERR, "GlassWindow: Failed to reload configuration: " + std::string(e.what()));
+    }
 }
 
-static GLuint createProgram(const std::string& vert, const std::string& frag, bool dynamic, bool silent) {
-    auto vertCompiled = compileShader(GL_VERTEX_SHADER, vert, dynamic, silent);
-    if (dynamic) {
-        if (vertCompiled == 0)
-            return 0;
-    } else
-        RASSERT(vertCompiled, "Compiling shader failed. VERTEX nullptr! Shader source:\n\n{}", vert);
-
-    auto fragCompiled = compileShader(GL_FRAGMENT_SHADER, frag, dynamic, silent);
-    if (dynamic) {
-        if (fragCompiled == 0)
-            return 0;
-    } else
-        RASSERT(fragCompiled, "Compiling shader failed. FRAGMENT nullptr! Shader source:\n\n{}", frag);
-
-    auto prog = glCreateProgram();
-    glAttachShader(prog, vertCompiled);
-    glAttachShader(prog, fragCompiled);
-    glLinkProgram(prog);
-
-    glDetachShader(prog, vertCompiled);
-    glDetachShader(prog, fragCompiled);
-    glDeleteShader(vertCompiled);
-    glDeleteShader(fragCompiled);
-
-    GLint ok;
-    glGetProgramiv(prog, GL_LINK_STATUS, &ok);
-    if (dynamic) {
-        if (ok == GL_FALSE) {
-            logShaderError(prog, true, silent);
-            return 0;
-        }
-    } else {
-        if (ok != GL_TRUE)
-            logShaderError(prog, true);
-        RASSERT(ok != GL_FALSE, "createProgram() failed! GL_LINK_STATUS not OK!");
+void CGlassWindow::updateShaderUniforms() {
+    if (!m_Shaders.validateShaders()) {
+        Debug::log(ERR, "GlassWindow: Invalid shaders, cannot update uniforms");
+        return;
     }
 
-    return prog;
-}
-
-static std::string loadShader(const std::string& filename) {
-    const auto home = Hyprutils::Path::getHome();
-    if (home) {
-        const auto src = NFsUtils::readFileAsString(home.value() + "/hypr/shaders/" + filename);
-        if (src)
-            return src.value();
-    }
-    for (auto& e : ASSET_PATHS) {
-        const auto src = NFsUtils::readFileAsString(std::string{e} + "/hypr/shaders/" + filename);
-        if (src)
-            return src.value();
-    }
-    throw std::runtime_error(std::format("Couldn't load shader {}", filename));
-}
-
-void ShaderHolder::Init() {
     g_pHyprRenderer->makeEGLCurrent();
 
-    // Get shader sources from files
-    const auto TEXVERTSRC = g_pHyprOpenGL->m_shaders->TEXVERTSRC;
-    const auto TEXVERTSRC300 = g_pHyprOpenGL->m_shaders->TEXVERTSRC300;
-    const auto TEXFRAGSRCCM = loadShader("CM.frag");
-    const auto TEXFRAGSRCRGBA = loadShader("rgba.frag");
-    const auto TEXFRAGSRCRGBX = loadShader("rgbx.frag");
-    const auto TEXFRAGSRCEXT = loadShader("ext.frag");
-
-    // Create shader programs
-    CM.program = createProgram(TEXVERTSRC300, TEXFRAGSRCCM, true, true);
-    if (!CM.program) throw std::runtime_error("Failed to create Shader: CM.frag, check hyprland logs");
-    CM.proj = glGetUniformLocation(CM.program, "proj");
-    CM.tex = glGetUniformLocation(CM.program, "tex");
-    CM.texType = glGetUniformLocation(CM.program, "texType");
-    CM.alphaMatte = glGetUniformLocation(CM.program, "texMatte");
-    CM.alpha = glGetUniformLocation(CM.program, "alpha");
-    CM.texAttrib = glGetAttribLocation(CM.program, "texcoord");
-    CM.matteTexAttrib = glGetAttribLocation(CM.program, "texcoordMatte");
-    CM.posAttrib = glGetAttribLocation(CM.program, "pos");
-    CM.discardOpaque = glGetUniformLocation(CM.program, "discardOpaque");
-    CM.discardAlpha = glGetUniformLocation(CM.program, "discardAlpha");
-    CM.discardAlphaValue = glGetUniformLocation(CM.program, "discardAlphaValue");
-    CM.applyTint = glGetUniformLocation(CM.program, "applyTint");
-    CM.tint = glGetUniformLocation(CM.program, "tint");
-    CM.useAlphaMatte = glGetUniformLocation(CM.program, "useAlphaMatte");
-    CM.topLeft = glGetUniformLocation(CM.program, "topLeft");
-    CM.fullSize = glGetUniformLocation(CM.program, "fullSize");
-    CM.radius = glGetUniformLocation(CM.program, "radius");
-    CM.roundingPower = glGetUniformLocation(CM.program, "roundingPower");
-
-    RGBA.program = createProgram(TEXVERTSRC, TEXFRAGSRCRGBA, true, true);
-    if (!RGBA.program) throw std::runtime_error("Failed to create Shader: rgba.frag, check hyprland logs");
-    RGBA.proj = glGetUniformLocation(RGBA.program, "proj");
-    RGBA.tex = glGetUniformLocation(RGBA.program, "tex");
-    RGBA.alphaMatte = glGetUniformLocation(RGBA.program, "texMatte");
-    RGBA.alpha = glGetUniformLocation(RGBA.program, "alpha");
-    RGBA.texAttrib = glGetAttribLocation(RGBA.program, "texcoord");
-    RGBA.matteTexAttrib = glGetAttribLocation(RGBA.program, "texcoordMatte");
-    RGBA.posAttrib = glGetAttribLocation(RGBA.program, "pos");
-    RGBA.discardOpaque = glGetUniformLocation(RGBA.program, "discardOpaque");
-    RGBA.discardAlpha = glGetUniformLocation(RGBA.program, "discardAlpha");
-    RGBA.discardAlphaValue = glGetUniformLocation(RGBA.program, "discardAlphaValue");
-    RGBA.applyTint = glGetUniformLocation(RGBA.program, "applyTint");
-    RGBA.tint = glGetUniformLocation(RGBA.program, "tint");
-    RGBA.useAlphaMatte = glGetUniformLocation(RGBA.program, "useAlphaMatte");
-    RGBA.topLeft = glGetUniformLocation(RGBA.program, "topLeft");
-    RGBA.fullSize = glGetUniformLocation(RGBA.program, "fullSize");
-    RGBA.radius = glGetUniformLocation(RGBA.program, "radius");
-    RGBA.roundingPower = glGetUniformLocation(RGBA.program, "roundingPower");
-
-    RGBX.program = createProgram(TEXVERTSRC, TEXFRAGSRCRGBX, true, true);
-    if (!RGBX.program) throw std::runtime_error("Failed to create Shader: rgbx.frag, check hyprland logs");
-    RGBX.tex = glGetUniformLocation(RGBX.program, "tex");
-    RGBX.proj = glGetUniformLocation(RGBX.program, "proj");
-    RGBX.alpha = glGetUniformLocation(RGBX.program, "alpha");
-    RGBX.texAttrib = glGetAttribLocation(RGBX.program, "texcoord");
-    RGBX.posAttrib = glGetAttribLocation(RGBX.program, "pos");
-    RGBX.discardOpaque = glGetUniformLocation(RGBX.program, "discardOpaque");
-    RGBX.discardAlpha = glGetUniformLocation(RGBX.program, "discardAlpha");
-    RGBX.discardAlphaValue = glGetUniformLocation(RGBX.program, "discardAlphaValue");
-    RGBX.applyTint = glGetUniformLocation(RGBX.program, "applyTint");
-    RGBX.tint = glGetUniformLocation(RGBX.program, "tint");
-    RGBX.topLeft = glGetUniformLocation(RGBX.program, "topLeft");
-    RGBX.fullSize = glGetUniformLocation(RGBX.program, "fullSize");
-    RGBX.radius = glGetUniformLocation(RGBX.program, "radius");
-    RGBX.roundingPower = glGetUniformLocation(RGBX.program, "roundingPower");
-
-    EXT.program = createProgram(TEXVERTSRC, TEXFRAGSRCEXT, true, true);
-    if (!EXT.program) throw std::runtime_error("Failed to create Shader: ext.frag, check hyprland logs");
-    EXT.tex = glGetUniformLocation(EXT.program, "tex");
-    EXT.proj = glGetUniformLocation(EXT.program, "proj");
-    EXT.alpha = glGetUniformLocation(EXT.program, "alpha");
-    EXT.posAttrib = glGetAttribLocation(EXT.program, "pos");
-    EXT.texAttrib = glGetAttribLocation(EXT.program, "texcoord");
-    EXT.discardOpaque = glGetUniformLocation(EXT.program, "discardOpaque");
-    EXT.discardAlpha = glGetUniformLocation(EXT.program, "discardAlpha");
-    EXT.discardAlphaValue = glGetUniformLocation(EXT.program, "discardAlphaValue");
-    EXT.applyTint = glGetUniformLocation(EXT.program, "applyTint");
-    EXT.tint = glGetUniformLocation(EXT.program, "tint");
-    EXT.topLeft = glGetUniformLocation(EXT.program, "topLeft");
-    EXT.fullSize = glGetUniformLocation(EXT.program, "fullSize");
-    EXT.radius = glGetUniformLocation(EXT.program, "radius");
-    EXT.roundingPower = glGetUniformLocation(EXT.program, "roundingPower");
+    // Update uniforms for all shaders
+    for (auto* shader : {&m_Shaders.CM, &m_Shaders.RGBA, &m_Shaders.RGBX, &m_Shaders.EXT}) {
+        glUseProgram(shader->program);
+        glUniform1f(glGetUniformLocation(shader->program, "u_strength"), m_config.strength);
+        glUniform1i(glGetUniformLocation(shader->program, "u_blur_radius"), m_config.blur_radius);
+        glUniform1i(glGetUniformLocation(shader->program, "u_chromatic"), m_config.chromatic);
+        glUniform1f(glGetUniformLocation(shader->program, "u_chromatic_strength"), m_config.chromatic_strength);
+        glUniform1f(glGetUniformLocation(shader->program, "u_brightness"), m_config.brightness);
+        glUniform1f(glGetUniformLocation(shader->program, "u_contrast"), m_config.contrast);
+        glUniform1f(glGetUniformLocation(shader->program, "u_saturation"), m_config.saturation);
+    }
 
     g_pHyprRenderer->unsetEGL();
 }
 
-void ShaderHolder::Destroy() {
-    g_pHyprRenderer->makeEGLCurrent();
+bool CGlassWindow::shouldApplyToWindow(CWindow* pWindow) {
+    if (!pWindow || !pWindow->m_bMapped) return false;
 
-    CM.destroy();
-    RGBA.destroy();
-    RGBX.destroy();
-    EXT.destroy();
+    // Check window rules
+    std::vector<SP<CWindowRule>> rules = g_pConfigManager->getMatchingRules(pWindow);
+    bool shouldApply = std::any_of(rules.begin(), rules.end(), [](const SP<CWindowRule>& rule) {
+        return rule->m_rule == "plugin:glasswindow";
+    });
 
-    g_pHyprRenderer->unsetEGL();
-}
+    if (shouldApply) return true;
 
-CGlassWindow::CGlassWindow() {
-    Debug::log(LOG, "GlassWindow: Constructor called");
-}
+    // Check custom rules
+    const auto& className = pWindow->m_szClass;
+    const auto& title = pWindow->m_szTitle;
 
-CGlassWindow::~CGlassWindow() {
-    Debug::log(LOG, "GlassWindow: Destructor called");
-    if (m_ShadersSwapped) {
-        std::swap(m_Shaders.CM, g_pHyprOpenGL->m_shaders->m_shCM);
-        std::swap(m_Shaders.RGBA, g_pHyprOpenGL->m_shaders->m_shRGBA);
-        std::swap(m_Shaders.RGBX, g_pHyprOpenGL->m_shaders->m_shRGBX);
-        std::swap(m_Shaders.EXT, g_pHyprOpenGL->m_shaders->m_shEXT);
-        m_ShadersSwapped = false;
+    for (const auto& rule : m_config.rules) {
+        try {
+            if (rule.starts_with("class:")) {
+                std::regex pattern(rule.substr(6));
+                if (std::regex_match(className, pattern)) return true;
+            } else if (rule.starts_with("title:")) {
+                std::regex pattern(rule.substr(6));
+                if (std::regex_match(title, pattern)) return true;
+            } else if (rule.starts_with("!class:")) {
+                std::regex pattern(rule.substr(7));
+                if (std::regex_match(className, pattern)) return false;
+            } else if (rule.starts_with("!title:")) {
+                std::regex pattern(rule.substr(7));
+                if (std::regex_match(title, pattern)) return false;
+            }
+        } catch (const std::regex_error& e) {
+            Debug::log(ERR, "GlassWindow: Invalid regex in rule: " + rule);
+        }
     }
-    m_Shaders.Destroy();
+
+    return true;
 }
 
 void CGlassWindow::init() {
     Debug::log(LOG, "GlassWindow: Initializing plugin");
     
-    // Register config values
-    const std::string strengthKey = "plugin:glasswindow:strength";
-    const std::string chromaticKey = "plugin:glasswindow:chromatic_aberration";
-    
-    Debug::log(LOG, "GlassWindow: Registering config values");
-    Debug::log(LOG, "GlassWindow: strength key: " + strengthKey);
-    Debug::log(LOG, "GlassWindow: chromatic key: " + chromaticKey);
-    
-    bool strengthRegistered = HyprlandAPI::addConfigValue(PHANDLE, strengthKey, Hyprlang::CConfigValue(Hyprlang::FLOAT(0.7f)));
-    bool chromaticRegistered = HyprlandAPI::addConfigValue(PHANDLE, chromaticKey, Hyprlang::CConfigValue(Hyprlang::INT(1)));
-    
-    std::string msg = "GlassWindow: Config registration - strength: ";
-    msg += strengthRegistered ? "success" : "failed";
-    msg += ", chromatic: ";
-    msg += chromaticRegistered ? "success" : "failed";
-    Debug::log(LOG, msg);
+    // Check Hyprland version
+    const auto PLUGIN_HYPRLAND_VERSION = HyprlandAPI::getHyprlandVersion(PHANDLE);
+    if (!PLUGIN_HYPRLAND_VERSION) {
+        Debug::log(ERR, "GlassWindow: Failed to get Hyprland version");
+        return;
+    }
+
+    // Register configuration
+    registerConfig();
+    reloadConfig();
 
     // Initialize shaders
-    m_Shaders.Init();
+    try {
+        m_Shaders.Init();
+        if (!m_Shaders.validateShaders()) {
+            Debug::log(ERR, "GlassWindow: Failed to initialize shaders");
+            return;
+        }
+    } catch (const std::exception& e) {
+        Debug::log(ERR, "GlassWindow: Failed to initialize shaders: " + std::string(e.what()));
+        return;
+    }
 
-    // Register window hooks
-    const std::string renderEvent = "renderWindow";
-    const std::string createEvent = "windowCreated";
-    const std::string destroyEvent = "windowDestroyed";
-
-    Debug::log(LOG, "GlassWindow: Registering window hooks");
-    
-    static auto PHOOK = HyprlandAPI::registerCallbackDynamic(PHANDLE, renderEvent, [this](void* self, SCallbackInfo& info, std::any data) {
-        Debug::log(LOG, "GlassWindow: Render callback triggered");
+    // Register callbacks
+    static auto PHOOK = HyprlandAPI::registerCallbackDynamic(PHANDLE, "renderWindow", [this](void* self, SCallbackInfo& info, std::any data) {
         auto* const PWINDOW = std::any_cast<CWindow*>(data);
-        if (PWINDOW)
-            renderWindow(PWINDOW);
+        if (!PWINDOW || !shouldApplyToWindow(PWINDOW)) return;
+
+        if (!m_ShadersSwapped) {
+            std::swap(m_Shaders.CM, g_pHyprOpenGL->m_shaders->m_shCM);
+            std::swap(m_Shaders.RGBA, g_pHyprOpenGL->m_shaders->m_shRGBA);
+            std::swap(m_Shaders.RGBX, g_pHyprOpenGL->m_shaders->m_shRGBX);
+            std::swap(m_Shaders.EXT, g_pHyprOpenGL->m_shaders->m_shEXT);
+            m_ShadersSwapped = true;
+        }
     });
 
-    static auto PHOOK2 = HyprlandAPI::registerCallbackDynamic(PHANDLE, createEvent, [this](void* self, SCallbackInfo& info, std::any data) {
-        Debug::log(LOG, "GlassWindow: Window create callback triggered");
+    static auto PHOOK2 = HyprlandAPI::registerCallbackDynamic(PHANDLE, "windowCreated", [this](void* self, SCallbackInfo& info, std::any data) {
         auto* const PWINDOW = std::any_cast<CWindow*>(data);
-        if (PWINDOW)
-            onWindowCreate(PWINDOW);
+        if (PWINDOW) onWindowCreate(PWINDOW);
     });
 
-    static auto PHOOK3 = HyprlandAPI::registerCallbackDynamic(PHANDLE, destroyEvent, [this](void* self, SCallbackInfo& info, std::any data) {
-        Debug::log(LOG, "GlassWindow: Window destroy callback triggered");
+    static auto PHOOK3 = HyprlandAPI::registerCallbackDynamic(PHANDLE, "windowDestroyed", [this](void* self, SCallbackInfo& info, std::any data) {
         auto* const PWINDOW = std::any_cast<CWindow*>(data);
-        if (PWINDOW)
-            onWindowDestroy(PWINDOW);
+        if (PWINDOW) onWindowDestroy(PWINDOW);
     });
 
-    Debug::log(LOG, "GlassWindow: Hooks registered");
+    static auto PHOOK4 = HyprlandAPI::registerCallbackDynamic(PHANDLE, "configReloaded", [this](void* self, SCallbackInfo& info, std::any data) {
+        reloadConfig();
+    });
+
+    m_initialized = true;
+    Debug::log(LOG, "GlassWindow: Plugin initialized successfully");
 }
 
 void CGlassWindow::onWindowCreate(CWindow* pWindow) {
@@ -372,15 +306,6 @@ void CGlassWindow::renderWindow(CWindow* pWindow) {
     std::swap(m_Shaders.RGBX, g_pHyprOpenGL->m_shaders->m_shRGBX);
     std::swap(m_Shaders.EXT, g_pHyprOpenGL->m_shaders->m_shEXT);
     m_ShadersSwapped = false;
-}
-
-bool CGlassWindow::shouldApplyToWindow(CWindow* pWindow) {
-    if (!pWindow)
-        return false;
-
-    // Apply to all windows for now
-    // You can add more sophisticated rules here later
-    return true;
 }
 
 // Plugin entry point
