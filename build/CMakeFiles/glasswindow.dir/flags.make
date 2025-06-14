@@ -4,7 +4,7 @@
 # compile CXX with /usr/lib64/ccache/c++
 CXX_DEFINES = -DWLR_USE_UNSTABLE -Dglasswindow_EXPORTS
 
-CXX_INCLUDES = -I/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/include -isystem /var/cache/hyprpm/svergolini/headersRoot/include -isystem /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols -isystem /var/cache/hyprpm/svergolini/headersRoot/include/hyprland -isystem /usr/include/pixman-1 -isystem /usr/include/libdrm
+CXX_INCLUDES = -I/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/include -I/usr/include/pixman-1 -I/usr/include/libdrm -isystem /var/cache/hyprpm/svergolini/headersRoot/include -isystem /var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols -isystem /var/cache/hyprpm/svergolini/headersRoot/include/hyprland
 
-CXX_FLAGS = -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wno-narrowing
+CXX_FLAGS = -std=gnu++23 -fPIC -Wall -Wextra -Wno-unused-parameter
 

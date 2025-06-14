@@ -8,59 +8,49 @@ project(glasswindow
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Find required packages
+# Find the Hyprland plugin API (automatically exposed via pkg-config)
 find_package(PkgConfig REQUIRED)
+pkg_check_modules(Hyprland REQUIRED IMPORTED_TARGET hyprland)
 
-# Find Hyprland
-pkg_check_modules(hyprland REQUIRED IMPORTED_TARGET hyprland)
-pkg_check_modules(hyprlang REQUIRED IMPORTED_TARGET hyprlang)
-pkg_check_modules(hyprutils REQUIRED IMPORTED_TARGET hyprutils)
-pkg_check_modules(pixman REQUIRED IMPORTED_TARGET pixman-1)
-pkg_check_modules(libdrm REQUIRED IMPORTED_TARGET libdrm)
+# Find pixman-1 using pkg-config
+pkg_check_modules(PIXMAN REQUIRED pixman-1)
 
-# Find OpenGL
-find_package(OpenGL REQUIRED)
+# Find libdrm using pkg-config
+pkg_check_modules(LIBDRM REQUIRED libdrm)
 
-# Create the plugin library
+# Create plugin library
 add_library(glasswindow SHARED
     src/glasswindow.cpp
 )
 
-# Set up include directories
+# Set include dirs, add libdrm include dirs here
 target_include_directories(glasswindow PRIVATE
     include/
-    ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${CMAKE_CURRENT_SOURCE_DIR}/Hyprland/src
+    ${PIXMAN_INCLUDE_DIRS}
+    ${LIBDRM_INCLUDE_DIRS}   # Add libdrm include dirs here
 )
 
-# Link libraries
-target_link_libraries(glasswindow
-    PkgConfig::hyprland
-    PkgConfig::hyprlang
-    PkgConfig::hyprutils
-    PkgConfig::pixman
-    PkgConfig::libdrm
-    OpenGL::GL
+# Link against Hyprland plugin API, pixman, and libdrm
+target_link_libraries(glasswindow PRIVATE
+    PkgConfig::Hyprland
+    ${PIXMAN_LIBRARIES}
+    ${LIBDRM_LIBRARIES}     # Link libdrm libs here
 )
 
-# Set compiler flags
+# Add compile flags from pixman and libdrm
 target_compile_options(glasswindow PRIVATE
-    -Wall -Wextra -Wno-unused-parameter -Wno-unused-value
-    -Wno-missing-field-initializers -Wno-narrowing
+    ${PIXMAN_CFLAGS_OTHER}
+    ${LIBDRM_CFLAGS_OTHER}   # Add libdrm compile flags here
+    -Wall -Wextra -Wno-unused-parameter
 )
 
-# Plugin-specific definitions
-target_compile_definitions(glasswindow PRIVATE
-    WLR_USE_UNSTABLE
-)
+# Define WLR_USE_UNSTABLE if needed
+target_compile_definitions(glasswindow PRIVATE WLR_USE_UNSTABLE)
 
-# Set up plugin properties
+# Correct plugin properties
 set_target_properties(glasswindow PROPERTIES
     PREFIX ""
     SUFFIX ".so"
 )
 
-# Installation (optional)
-install(TARGETS glasswindow
-    LIBRARY DESTINATION lib
-)
+# Optional install target

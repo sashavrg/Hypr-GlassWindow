@@ -1,0 +1,36 @@
+# Build directories
+/build/
+/cmake-build-debug/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.user
+*.sln
+*.vcxproj*
+*.DS_Store
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Compiled binaries and libraries
+*.o
+*.obj
+*.so
+*.dll
+*.dylib
+*.exe
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Other
+*.pid
