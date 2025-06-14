@@ -1,76 +1,66 @@
-cmake_minimum_required(VERSION 3.16)
-project(Hypr-GlassWindow)
+cmake_minimum_required(VERSION 3.19)
+
+project(glasswindow
+    DESCRIPTION "Glass window effect plugin for Hyprland"
+    VERSION 1.0.0
+)
 
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Add necessary compiler flags
-add_compile_options(-fPIC -Wall -Wextra)
-
 # Find required packages
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(HYPRLAND REQUIRED hyprland)
-pkg_check_modules(HYPRLANG REQUIRED hyprlang)
-pkg_check_modules(HYPRUTILS REQUIRED hyprutils)
-pkg_check_modules(PIXMAN REQUIRED pixman-1)
-pkg_check_modules(DRM REQUIRED libdrm)
+
+# Find Hyprland
+pkg_check_modules(hyprland REQUIRED IMPORTED_TARGET hyprland)
+pkg_check_modules(hyprlang REQUIRED IMPORTED_TARGET hyprlang)
+pkg_check_modules(hyprutils REQUIRED IMPORTED_TARGET hyprutils)
+pkg_check_modules(pixman REQUIRED IMPORTED_TARGET pixman-1)
+pkg_check_modules(libdrm REQUIRED IMPORTED_TARGET libdrm)
+
+# Find OpenGL
 find_package(OpenGL REQUIRED)
 
-# Add source files
-set(SOURCES
+# Create the plugin library
+add_library(glasswindow SHARED
     src/glasswindow.cpp
 )
 
-# Add shader files
-set(SHADER_FILES
-    shaders/glass.frag
-)
-
-# Create the plugin library
-add_library(glasswindow SHARED ${SOURCES})
-
-# Add include directories
-target_include_directories(glasswindow PRIVATE 
+# Set up include directories
+target_include_directories(glasswindow PRIVATE
+    include/
     ${CMAKE_CURRENT_SOURCE_DIR}/include
-    ${HYPRLAND_INCLUDE_DIRS}
-    ${HYPRLANG_INCLUDE_DIRS}
-    ${HYPRUTILS_INCLUDE_DIRS}
-    ${PIXMAN_INCLUDE_DIRS}
-    /usr/include/pixman-1
-    /usr/include
-    /usr/local/include
-    ${DRM_INCLUDE_DIRS}
+    ${CMAKE_CURRENT_SOURCE_DIR}/Hyprland/src
 )
 
-# Add compile definitions
-target_compile_definitions(glasswindow PRIVATE
-    PLUGIN_API_VERSION=${HYPRLAND_API_VERSION}
-    HYPRLAND_API_VERSION=${HYPRLAND_API_VERSION}
-)
-
-# Link against required libraries
+# Link libraries
 target_link_libraries(glasswindow
-    PRIVATE
-    ${HYPRLAND_LIBRARIES}
-    ${HYPRLANG_LIBRARIES}
-    ${HYPRUTILS_LIBRARIES}
-    ${PIXMAN_LIBRARIES}
-    ${DRM_LIBRARIES}
+    PkgConfig::hyprland
+    PkgConfig::hyprlang
+    PkgConfig::hyprutils
+    PkgConfig::pixman
+    PkgConfig::libdrm
     OpenGL::GL
 )
 
-# Set output directory
+# Set compiler flags
+target_compile_options(glasswindow PRIVATE
+    -Wall -Wextra -Wno-unused-parameter -Wno-unused-value
+    -Wno-missing-field-initializers -Wno-narrowing
+)
+
+# Plugin-specific definitions
+target_compile_definitions(glasswindow PRIVATE
+    WLR_USE_UNSTABLE
+)
+
+# Set up plugin properties
 set_target_properties(glasswindow PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib"
     PREFIX ""
+    SUFFIX ".so"
 )
 
-# Install rules
+# Installation (optional)
 install(TARGETS glasswindow
-    LIBRARY DESTINATION lib/hyprland/plugins
+    LIBRARY DESTINATION lib
 )
-
-# Install shader files
-install(FILES ${SHADER_FILES}
-    DESTINATION share/hyprland/plugins/glasswindow/shaders
-) 

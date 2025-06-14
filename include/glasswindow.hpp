@@ -1,85 +1,59 @@
 #pragma once
 
-#include <string>
-#include <vector>
-#include <any>
-#include <functional>
-#include <hyprland/src/Compositor.hpp>
-#include <hyprland/src/desktop/Window.hpp>
-#include <hyprland/src/render/OpenGL.hpp>
+#include <hyprland/src/plugins/PluginAPI.hpp>
+#include <hyprland/src/Window.hpp>
 #include <hyprland/src/render/Renderer.hpp>
-#include <hyprland/src/render/Shader.hpp>
-#include <hyprutils/math/Region.hpp>
-#include <hyprutils/math/Vector2D.hpp>
-#include <hyprland/src/helpers/Color.hpp>
-#include <hyprland/src/desktop/Workspace.hpp>
-#include <hyprland/src/helpers/Monitor.hpp>
-#include <hyprland/src/debug/Log.hpp>
 #include <hyprland/src/config/ConfigManager.hpp>
-#include </usr/include/pixman-1/pixman.h>
+#include <hyprlang.hpp>
 
-// Configuration structure
-struct SGlassConfig {
-    float strength = 0.5f;
+#include <unordered_set>
+#include <vector>
+#include <string>
+#include <memory>
+
+// Configuration keys
+inline constexpr auto CONFIG_STRENGTH = "plugin:glasswindow:strength";
+inline constexpr auto CONFIG_BLUR = "plugin:glasswindow:blur_radius";
+inline constexpr auto CONFIG_CHROMATIC = "plugin:glasswindow:chromatic";
+inline constexpr auto CONFIG_CHROMATIC_STRENGTH = "plugin:glasswindow:chromatic_strength";
+inline constexpr auto CONFIG_BRIGHTNESS = "plugin:glasswindow:brightness";
+inline constexpr auto CONFIG_CONTRAST = "plugin:glasswindow:contrast";
+inline constexpr auto CONFIG_SATURATION = "plugin:glasswindow:saturation";
+inline constexpr auto CONFIG_RULES = "plugin:glasswindow:rules";
+
+// Plugin handle
+inline HANDLE PHANDLE = nullptr;
+
+struct GlassConfig {
+    float strength = 1.0f;
     int blur_radius = 10;
-    bool chromatic = true;
+    int chromatic = 0;
     float chromatic_strength = 0.5f;
-    float brightness = 1.2f;
-    float contrast = 1.1f;
-    float saturation = 1.1f;
+    float brightness = 1.0f;
+    float contrast = 1.0f;
+    float saturation = 1.0f;
     std::vector<std::string> rules;
-
-    // Validation ranges
-    static constexpr float MIN_STRENGTH = 0.0f;
-    static constexpr float MAX_STRENGTH = 1.0f;
-    static constexpr int MIN_BLUR = 0;
-    static constexpr int MAX_BLUR = 100;
-    static constexpr float MIN_CHROMATIC_STRENGTH = 0.0f;
-    static constexpr float MAX_CHROMATIC_STRENGTH = 1.0f;
-    static constexpr float MIN_BRIGHTNESS = 0.0f;
-    static constexpr float MAX_BRIGHTNESS = 2.0f;
-    static constexpr float MIN_CONTRAST = 0.0f;
-    static constexpr float MAX_CONTRAST = 2.0f;
-    static constexpr float MIN_SATURATION = 0.0f;
-    static constexpr float MAX_SATURATION = 2.0f;
-
-    // Validation functions
-    bool validate() const;
-    void clampValues();
-};
-
-struct ShaderHolder {
-    SShader CM;
-    SShader RGBA;
-    SShader RGBX;
-    SShader EXT;
-
-    void Init();
-    void Destroy();
-    void reloadShaders();
-    bool validateShaders() const;
 };
 
 class CGlassWindow {
 public:
-    CGlassWindow();
-    ~CGlassWindow();
-
+    static CGlassWindow& getInstance();
+    
     void init();
-    void onWindowCreate(CWindow* pWindow);
-    void onWindowDestroy(CWindow* pWindow);
-    void renderWindow(CWindow* pWindow);
+    void cleanup();
+    void registerConfig();
     void reloadConfig();
+    
+    bool shouldApplyToWindow(PHLWINDOW pWindow);
+    void applyGlassEffect(PHLWINDOW pWindow, CRegion& damage);
 
 private:
-    bool shouldApplyToWindow(CWindow* pWindow);
-    bool validateConfig();
-    void registerConfig();
-    void updateShaderUniforms();
-
-    std::vector<std::string> m_windowRules;
-    ShaderHolder m_Shaders;
-    bool m_ShadersSwapped = false;
-    SGlassConfig m_config;
-    bool m_initialized = false;
-}; 
+    CGlassWindow() = default;
+    ~CGlassWindow() = default;
+    
+    CGlassWindow(const CGlassWindow&) = delete;
+    CGlassWindow& operator=(const CGlassWindow&) = delete;
+    
+    GlassConfig m_config;
+    std::unordered_set<PHLWINDOW> m_glassWindows;
+};

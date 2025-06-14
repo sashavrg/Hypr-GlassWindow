@@ -9,7 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/src/glasswindow.cpp" "CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o" "gcc" "CMakeFiles/glasswindow.dir/src/glasswindow.cpp.o.d"
-  "" "lib/glasswindow.so" "gcc" "CMakeFiles/glasswindow.dir/link.d"
+  "" "glasswindow.so" "gcc" "CMakeFiles/glasswindow.dir/link.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

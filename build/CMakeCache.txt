@@ -142,13 +142,28 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_DESCRIPTION:STATIC=
+CMAKE_PROJECT_DESCRIPTION:STATIC=Glass window effect plugin for Hyprland
 
 //Value Computed by CMake
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Hypr-GlassWindow
+CMAKE_PROJECT_NAME:STATIC=glasswindow
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=1.0.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -215,15 +230,6 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
-//Value Computed by CMake
-Hypr-GlassWindow_BINARY_DIR:STATIC=/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/build
-
-//Value Computed by CMake
-Hypr-GlassWindow_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-Hypr-GlassWindow_SOURCE_DIR:STATIC=/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow
-
 //Path to a file.
 OPENGL_EGL_INCLUDE_DIR:PATH=/usr/include
 
@@ -269,17 +275,26 @@ PKG_CONFIG_ARGN:STRING=
 //pkg-config executable
 PKG_CONFIG_EXECUTABLE:FILEPATH=/usr/bin/pkg-config
 
-//Path to a library.
-pkgcfg_lib_DRM_drm:FILEPATH=/usr/lib64/libdrm.so
+//Value Computed by CMake
+glasswindow_BINARY_DIR:STATIC=/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow/build
+
+//Value Computed by CMake
+glasswindow_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+glasswindow_SOURCE_DIR:STATIC=/home/svergolini/Documents/GitHub/hyprland-glass-shader/Hypr-GlassWindow
 
 //Path to a library.
-pkgcfg_lib_HYPRLANG_hyprlang:FILEPATH=/usr/lib64/libhyprlang.so
+pkgcfg_lib_hyprlang_hyprlang:FILEPATH=/usr/lib64/libhyprlang.so
 
 //Path to a library.
-pkgcfg_lib_HYPRUTILS_hyprutils:FILEPATH=/usr/lib64/libhyprutils.so
+pkgcfg_lib_hyprutils_hyprutils:FILEPATH=/usr/lib64/libhyprutils.so
 
 //Path to a library.
-pkgcfg_lib_PIXMAN_pixman-1:FILEPATH=/usr/lib64/libpixman-1.so
+pkgcfg_lib_libdrm_drm:FILEPATH=/usr/lib64/libdrm.so
+
+//Path to a library.
+pkgcfg_lib_pixman_pixman-1:FILEPATH=/usr/lib64/libpixman-1.so
 
 
 ########################
@@ -433,150 +448,10 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
-DRM_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/libdrm
-DRM_CFLAGS_I:INTERNAL=
-DRM_CFLAGS_OTHER:INTERNAL=
-DRM_FOUND:INTERNAL=1
-DRM_INCLUDEDIR:INTERNAL=/usr/include
-DRM_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/libdrm
-DRM_LDFLAGS:INTERNAL=-L/usr/lib64;-ldrm
-DRM_LDFLAGS_OTHER:INTERNAL=
-DRM_LIBDIR:INTERNAL=/usr/lib64
-DRM_LIBRARIES:INTERNAL=drm
-DRM_LIBRARY_DIRS:INTERNAL=/usr/lib64
-DRM_LIBS:INTERNAL=
-DRM_LIBS_L:INTERNAL=
-DRM_LIBS_OTHER:INTERNAL=
-DRM_LIBS_PATHS:INTERNAL=
-DRM_MODULE_NAME:INTERNAL=libdrm
-DRM_PREFIX:INTERNAL=/usr
-DRM_STATIC_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/libdrm
-DRM_STATIC_CFLAGS_I:INTERNAL=
-DRM_STATIC_CFLAGS_OTHER:INTERNAL=
-DRM_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/libdrm
-DRM_STATIC_LDFLAGS:INTERNAL=-L/usr/lib64;-ldrm
-DRM_STATIC_LDFLAGS_OTHER:INTERNAL=
-DRM_STATIC_LIBDIR:INTERNAL=
-DRM_STATIC_LIBRARIES:INTERNAL=drm
-DRM_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib64
-DRM_STATIC_LIBS:INTERNAL=
-DRM_STATIC_LIBS_L:INTERNAL=
-DRM_STATIC_LIBS_OTHER:INTERNAL=
-DRM_STATIC_LIBS_PATHS:INTERNAL=
-DRM_VERSION:INTERNAL=2.4.124
-DRM_libdrm_INCLUDEDIR:INTERNAL=
-DRM_libdrm_LIBDIR:INTERNAL=
-DRM_libdrm_PREFIX:INTERNAL=
-DRM_libdrm_VERSION:INTERNAL=
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib64/libOpenGL.so][/usr/lib64/libGLX.so][/usr/include][c ][v()]
 //Details about finding PkgConfig
 FIND_PACKAGE_MESSAGE_DETAILS_PkgConfig:INTERNAL=[/usr/bin/pkg-config][v2.3.0()]
-HYPRLAND_CFLAGS:INTERNAL=-I/var/cache/hyprpm/svergolini/headersRoot/include;-I/var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols;-I/var/cache/hyprpm/svergolini/headersRoot/include/hyprland
-HYPRLAND_CFLAGS_I:INTERNAL=
-HYPRLAND_CFLAGS_OTHER:INTERNAL=
-HYPRLAND_FOUND:INTERNAL=1
-HYPRLAND_INCLUDEDIR:INTERNAL=
-HYPRLAND_INCLUDE_DIRS:INTERNAL=/var/cache/hyprpm/svergolini/headersRoot/include;/var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols;/var/cache/hyprpm/svergolini/headersRoot/include/hyprland
-HYPRLAND_LDFLAGS:INTERNAL=
-HYPRLAND_LDFLAGS_OTHER:INTERNAL=
-HYPRLAND_LIBDIR:INTERNAL=
-HYPRLAND_LIBRARIES:INTERNAL=
-HYPRLAND_LIBRARY_DIRS:INTERNAL=
-HYPRLAND_LIBS:INTERNAL=
-HYPRLAND_LIBS_L:INTERNAL=
-HYPRLAND_LIBS_OTHER:INTERNAL=
-HYPRLAND_LIBS_PATHS:INTERNAL=
-HYPRLAND_MODULE_NAME:INTERNAL=hyprland
-HYPRLAND_PREFIX:INTERNAL=/var/cache/hyprpm/svergolini/headersRoot/include
-HYPRLAND_STATIC_CFLAGS:INTERNAL=-I/var/cache/hyprpm/svergolini/headersRoot/include;-I/var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols;-I/var/cache/hyprpm/svergolini/headersRoot/include/hyprland
-HYPRLAND_STATIC_CFLAGS_I:INTERNAL=
-HYPRLAND_STATIC_CFLAGS_OTHER:INTERNAL=
-HYPRLAND_STATIC_INCLUDE_DIRS:INTERNAL=/var/cache/hyprpm/svergolini/headersRoot/include;/var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols;/var/cache/hyprpm/svergolini/headersRoot/include/hyprland
-HYPRLAND_STATIC_LDFLAGS:INTERNAL=
-HYPRLAND_STATIC_LDFLAGS_OTHER:INTERNAL=
-HYPRLAND_STATIC_LIBDIR:INTERNAL=
-HYPRLAND_STATIC_LIBRARIES:INTERNAL=
-HYPRLAND_STATIC_LIBRARY_DIRS:INTERNAL=
-HYPRLAND_STATIC_LIBS:INTERNAL=
-HYPRLAND_STATIC_LIBS_L:INTERNAL=
-HYPRLAND_STATIC_LIBS_OTHER:INTERNAL=
-HYPRLAND_STATIC_LIBS_PATHS:INTERNAL=
-HYPRLAND_VERSION:INTERNAL=0.49.0
-HYPRLAND_hyprland_INCLUDEDIR:INTERNAL=
-HYPRLAND_hyprland_LIBDIR:INTERNAL=
-HYPRLAND_hyprland_PREFIX:INTERNAL=
-HYPRLAND_hyprland_VERSION:INTERNAL=
-HYPRLANG_CFLAGS:INTERNAL=-I/usr/include
-HYPRLANG_CFLAGS_I:INTERNAL=
-HYPRLANG_CFLAGS_OTHER:INTERNAL=
-HYPRLANG_FOUND:INTERNAL=1
-HYPRLANG_INCLUDEDIR:INTERNAL=/usr/include
-HYPRLANG_INCLUDE_DIRS:INTERNAL=/usr/include
-HYPRLANG_LDFLAGS:INTERNAL=-L/usr/lib64;-lhyprlang
-HYPRLANG_LDFLAGS_OTHER:INTERNAL=
-HYPRLANG_LIBDIR:INTERNAL=/usr/lib64
-HYPRLANG_LIBRARIES:INTERNAL=hyprlang
-HYPRLANG_LIBRARY_DIRS:INTERNAL=/usr/lib64
-HYPRLANG_LIBS:INTERNAL=
-HYPRLANG_LIBS_L:INTERNAL=
-HYPRLANG_LIBS_OTHER:INTERNAL=
-HYPRLANG_LIBS_PATHS:INTERNAL=
-HYPRLANG_MODULE_NAME:INTERNAL=hyprlang
-HYPRLANG_PREFIX:INTERNAL=/usr
-HYPRLANG_STATIC_CFLAGS:INTERNAL=-I/usr/include
-HYPRLANG_STATIC_CFLAGS_I:INTERNAL=
-HYPRLANG_STATIC_CFLAGS_OTHER:INTERNAL=
-HYPRLANG_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
-HYPRLANG_STATIC_LDFLAGS:INTERNAL=-L/usr/lib64;-lhyprlang
-HYPRLANG_STATIC_LDFLAGS_OTHER:INTERNAL=
-HYPRLANG_STATIC_LIBDIR:INTERNAL=
-HYPRLANG_STATIC_LIBRARIES:INTERNAL=hyprlang
-HYPRLANG_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib64
-HYPRLANG_STATIC_LIBS:INTERNAL=
-HYPRLANG_STATIC_LIBS_L:INTERNAL=
-HYPRLANG_STATIC_LIBS_OTHER:INTERNAL=
-HYPRLANG_STATIC_LIBS_PATHS:INTERNAL=
-HYPRLANG_VERSION:INTERNAL=0.6.3
-HYPRLANG_hyprlang_INCLUDEDIR:INTERNAL=
-HYPRLANG_hyprlang_LIBDIR:INTERNAL=
-HYPRLANG_hyprlang_PREFIX:INTERNAL=
-HYPRLANG_hyprlang_VERSION:INTERNAL=
-HYPRUTILS_CFLAGS:INTERNAL=-I/usr/include
-HYPRUTILS_CFLAGS_I:INTERNAL=
-HYPRUTILS_CFLAGS_OTHER:INTERNAL=
-HYPRUTILS_FOUND:INTERNAL=1
-HYPRUTILS_INCLUDEDIR:INTERNAL=/usr/include
-HYPRUTILS_INCLUDE_DIRS:INTERNAL=/usr/include
-HYPRUTILS_LDFLAGS:INTERNAL=-L/usr/lib64;-lhyprutils
-HYPRUTILS_LDFLAGS_OTHER:INTERNAL=
-HYPRUTILS_LIBDIR:INTERNAL=/usr/lib64
-HYPRUTILS_LIBRARIES:INTERNAL=hyprutils
-HYPRUTILS_LIBRARY_DIRS:INTERNAL=/usr/lib64
-HYPRUTILS_LIBS:INTERNAL=
-HYPRUTILS_LIBS_L:INTERNAL=
-HYPRUTILS_LIBS_OTHER:INTERNAL=
-HYPRUTILS_LIBS_PATHS:INTERNAL=
-HYPRUTILS_MODULE_NAME:INTERNAL=hyprutils
-HYPRUTILS_PREFIX:INTERNAL=/usr
-HYPRUTILS_STATIC_CFLAGS:INTERNAL=-I/usr/include
-HYPRUTILS_STATIC_CFLAGS_I:INTERNAL=
-HYPRUTILS_STATIC_CFLAGS_OTHER:INTERNAL=
-HYPRUTILS_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
-HYPRUTILS_STATIC_LDFLAGS:INTERNAL=-L/usr/lib64;-lhyprutils
-HYPRUTILS_STATIC_LDFLAGS_OTHER:INTERNAL=
-HYPRUTILS_STATIC_LIBDIR:INTERNAL=
-HYPRUTILS_STATIC_LIBRARIES:INTERNAL=hyprutils
-HYPRUTILS_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib64
-HYPRUTILS_STATIC_LIBS:INTERNAL=
-HYPRUTILS_STATIC_LIBS_L:INTERNAL=
-HYPRUTILS_STATIC_LIBS_OTHER:INTERNAL=
-HYPRUTILS_STATIC_LIBS_PATHS:INTERNAL=
-HYPRUTILS_VERSION:INTERNAL=0.7.1
-HYPRUTILS_hyprutils_INCLUDEDIR:INTERNAL=
-HYPRUTILS_hyprutils_LIBDIR:INTERNAL=
-HYPRUTILS_hyprutils_PREFIX:INTERNAL=
-HYPRUTILS_hyprutils_VERSION:INTERNAL=
 //ADVANCED property for variable: OPENGL_EGL_INCLUDE_DIR
 OPENGL_EGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_GLES2_INCLUDE_DIR
@@ -603,41 +478,6 @@ OPENGL_glx_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_opengl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_xmesa_INCLUDE_DIR
 OPENGL_xmesa_INCLUDE_DIR-ADVANCED:INTERNAL=1
-PIXMAN_CFLAGS:INTERNAL=-I/usr/include/pixman-1
-PIXMAN_CFLAGS_I:INTERNAL=
-PIXMAN_CFLAGS_OTHER:INTERNAL=
-PIXMAN_FOUND:INTERNAL=1
-PIXMAN_INCLUDEDIR:INTERNAL=/usr/include
-PIXMAN_INCLUDE_DIRS:INTERNAL=/usr/include/pixman-1
-PIXMAN_LDFLAGS:INTERNAL=-L/usr/lib64;-lpixman-1
-PIXMAN_LDFLAGS_OTHER:INTERNAL=
-PIXMAN_LIBDIR:INTERNAL=/usr/lib64
-PIXMAN_LIBRARIES:INTERNAL=pixman-1
-PIXMAN_LIBRARY_DIRS:INTERNAL=/usr/lib64
-PIXMAN_LIBS:INTERNAL=
-PIXMAN_LIBS_L:INTERNAL=
-PIXMAN_LIBS_OTHER:INTERNAL=
-PIXMAN_LIBS_PATHS:INTERNAL=
-PIXMAN_MODULE_NAME:INTERNAL=pixman-1
-PIXMAN_PREFIX:INTERNAL=/usr
-PIXMAN_STATIC_CFLAGS:INTERNAL=-I/usr/include/pixman-1
-PIXMAN_STATIC_CFLAGS_I:INTERNAL=
-PIXMAN_STATIC_CFLAGS_OTHER:INTERNAL=
-PIXMAN_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/pixman-1
-PIXMAN_STATIC_LDFLAGS:INTERNAL=-L/usr/lib64;-lpixman-1;-lm;-pthread
-PIXMAN_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
-PIXMAN_STATIC_LIBDIR:INTERNAL=
-PIXMAN_STATIC_LIBRARIES:INTERNAL=pixman-1;m
-PIXMAN_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib64
-PIXMAN_STATIC_LIBS:INTERNAL=
-PIXMAN_STATIC_LIBS_L:INTERNAL=
-PIXMAN_STATIC_LIBS_OTHER:INTERNAL=
-PIXMAN_STATIC_LIBS_PATHS:INTERNAL=
-PIXMAN_VERSION:INTERNAL=0.44.2
-PIXMAN_pixman-1_INCLUDEDIR:INTERNAL=
-PIXMAN_pixman-1_LIBDIR:INTERNAL=
-PIXMAN_pixman-1_PREFIX:INTERNAL=
-PIXMAN_pixman-1_VERSION:INTERNAL=
 //ADVANCED property for variable: PKG_CONFIG_ARGN
 PKG_CONFIG_ARGN-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: PKG_CONFIG_EXECUTABLE
@@ -648,23 +488,198 @@ _CMAKE_CXX_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 _CMAKE_C_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
-__pkg_config_arguments_DRM:INTERNAL=REQUIRED;libdrm
-__pkg_config_arguments_HYPRLAND:INTERNAL=REQUIRED;hyprland
-__pkg_config_arguments_HYPRLANG:INTERNAL=REQUIRED;hyprlang
-__pkg_config_arguments_HYPRUTILS:INTERNAL=REQUIRED;hyprutils
-__pkg_config_arguments_PIXMAN:INTERNAL=REQUIRED;pixman-1
-__pkg_config_checked_DRM:INTERNAL=1
-__pkg_config_checked_HYPRLAND:INTERNAL=1
-__pkg_config_checked_HYPRLANG:INTERNAL=1
-__pkg_config_checked_HYPRUTILS:INTERNAL=1
-__pkg_config_checked_PIXMAN:INTERNAL=1
-//ADVANCED property for variable: pkgcfg_lib_DRM_drm
-pkgcfg_lib_DRM_drm-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: pkgcfg_lib_HYPRLANG_hyprlang
-pkgcfg_lib_HYPRLANG_hyprlang-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: pkgcfg_lib_HYPRUTILS_hyprutils
-pkgcfg_lib_HYPRUTILS_hyprutils-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: pkgcfg_lib_PIXMAN_pixman-1
-pkgcfg_lib_PIXMAN_pixman-1-ADVANCED:INTERNAL=1
+__pkg_config_arguments_hyprland:INTERNAL=REQUIRED;IMPORTED_TARGET;hyprland
+__pkg_config_arguments_hyprlang:INTERNAL=REQUIRED;IMPORTED_TARGET;hyprlang
+__pkg_config_arguments_hyprutils:INTERNAL=REQUIRED;IMPORTED_TARGET;hyprutils
+__pkg_config_arguments_libdrm:INTERNAL=REQUIRED;IMPORTED_TARGET;libdrm
+__pkg_config_arguments_pixman:INTERNAL=REQUIRED;IMPORTED_TARGET;pixman-1
+__pkg_config_checked_hyprland:INTERNAL=1
+__pkg_config_checked_hyprlang:INTERNAL=1
+__pkg_config_checked_hyprutils:INTERNAL=1
+__pkg_config_checked_libdrm:INTERNAL=1
+__pkg_config_checked_pixman:INTERNAL=1
+hyprland_CFLAGS:INTERNAL=-I/var/cache/hyprpm/svergolini/headersRoot/include;-I/var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols;-I/var/cache/hyprpm/svergolini/headersRoot/include/hyprland
+hyprland_CFLAGS_I:INTERNAL=
+hyprland_CFLAGS_OTHER:INTERNAL=
+hyprland_FOUND:INTERNAL=1
+hyprland_INCLUDEDIR:INTERNAL=
+hyprland_INCLUDE_DIRS:INTERNAL=/var/cache/hyprpm/svergolini/headersRoot/include;/var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols;/var/cache/hyprpm/svergolini/headersRoot/include/hyprland
+hyprland_LDFLAGS:INTERNAL=
+hyprland_LDFLAGS_OTHER:INTERNAL=
+hyprland_LIBDIR:INTERNAL=
+hyprland_LIBRARIES:INTERNAL=
+hyprland_LIBRARY_DIRS:INTERNAL=
+hyprland_LIBS:INTERNAL=
+hyprland_LIBS_L:INTERNAL=
+hyprland_LIBS_OTHER:INTERNAL=
+hyprland_LIBS_PATHS:INTERNAL=
+hyprland_MODULE_NAME:INTERNAL=hyprland
+hyprland_PREFIX:INTERNAL=/var/cache/hyprpm/svergolini/headersRoot/include
+hyprland_STATIC_CFLAGS:INTERNAL=-I/var/cache/hyprpm/svergolini/headersRoot/include;-I/var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols;-I/var/cache/hyprpm/svergolini/headersRoot/include/hyprland
+hyprland_STATIC_CFLAGS_I:INTERNAL=
+hyprland_STATIC_CFLAGS_OTHER:INTERNAL=
+hyprland_STATIC_INCLUDE_DIRS:INTERNAL=/var/cache/hyprpm/svergolini/headersRoot/include;/var/cache/hyprpm/svergolini/headersRoot/include/hyprland/protocols;/var/cache/hyprpm/svergolini/headersRoot/include/hyprland
+hyprland_STATIC_LDFLAGS:INTERNAL=
+hyprland_STATIC_LDFLAGS_OTHER:INTERNAL=
+hyprland_STATIC_LIBDIR:INTERNAL=
+hyprland_STATIC_LIBRARIES:INTERNAL=
+hyprland_STATIC_LIBRARY_DIRS:INTERNAL=
+hyprland_STATIC_LIBS:INTERNAL=
+hyprland_STATIC_LIBS_L:INTERNAL=
+hyprland_STATIC_LIBS_OTHER:INTERNAL=
+hyprland_STATIC_LIBS_PATHS:INTERNAL=
+hyprland_VERSION:INTERNAL=0.49.0
+hyprland_hyprland_INCLUDEDIR:INTERNAL=
+hyprland_hyprland_LIBDIR:INTERNAL=
+hyprland_hyprland_PREFIX:INTERNAL=
+hyprland_hyprland_VERSION:INTERNAL=
+hyprlang_CFLAGS:INTERNAL=-I/usr/include
+hyprlang_CFLAGS_I:INTERNAL=
+hyprlang_CFLAGS_OTHER:INTERNAL=
+hyprlang_FOUND:INTERNAL=1
+hyprlang_INCLUDEDIR:INTERNAL=/usr/include
+hyprlang_INCLUDE_DIRS:INTERNAL=/usr/include
+hyprlang_LDFLAGS:INTERNAL=-L/usr/lib64;-lhyprlang
+hyprlang_LDFLAGS_OTHER:INTERNAL=
+hyprlang_LIBDIR:INTERNAL=/usr/lib64
+hyprlang_LIBRARIES:INTERNAL=hyprlang
+hyprlang_LIBRARY_DIRS:INTERNAL=/usr/lib64
+hyprlang_LIBS:INTERNAL=
+hyprlang_LIBS_L:INTERNAL=
+hyprlang_LIBS_OTHER:INTERNAL=
+hyprlang_LIBS_PATHS:INTERNAL=
+hyprlang_MODULE_NAME:INTERNAL=hyprlang
+hyprlang_PREFIX:INTERNAL=/usr
+hyprlang_STATIC_CFLAGS:INTERNAL=-I/usr/include
+hyprlang_STATIC_CFLAGS_I:INTERNAL=
+hyprlang_STATIC_CFLAGS_OTHER:INTERNAL=
+hyprlang_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+hyprlang_STATIC_LDFLAGS:INTERNAL=-L/usr/lib64;-lhyprlang
+hyprlang_STATIC_LDFLAGS_OTHER:INTERNAL=
+hyprlang_STATIC_LIBDIR:INTERNAL=
+hyprlang_STATIC_LIBRARIES:INTERNAL=hyprlang
+hyprlang_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib64
+hyprlang_STATIC_LIBS:INTERNAL=
+hyprlang_STATIC_LIBS_L:INTERNAL=
+hyprlang_STATIC_LIBS_OTHER:INTERNAL=
+hyprlang_STATIC_LIBS_PATHS:INTERNAL=
+hyprlang_VERSION:INTERNAL=0.6.3
+hyprlang_hyprlang_INCLUDEDIR:INTERNAL=
+hyprlang_hyprlang_LIBDIR:INTERNAL=
+hyprlang_hyprlang_PREFIX:INTERNAL=
+hyprlang_hyprlang_VERSION:INTERNAL=
+hyprutils_CFLAGS:INTERNAL=-I/usr/include
+hyprutils_CFLAGS_I:INTERNAL=
+hyprutils_CFLAGS_OTHER:INTERNAL=
+hyprutils_FOUND:INTERNAL=1
+hyprutils_INCLUDEDIR:INTERNAL=/usr/include
+hyprutils_INCLUDE_DIRS:INTERNAL=/usr/include
+hyprutils_LDFLAGS:INTERNAL=-L/usr/lib64;-lhyprutils
+hyprutils_LDFLAGS_OTHER:INTERNAL=
+hyprutils_LIBDIR:INTERNAL=/usr/lib64
+hyprutils_LIBRARIES:INTERNAL=hyprutils
+hyprutils_LIBRARY_DIRS:INTERNAL=/usr/lib64
+hyprutils_LIBS:INTERNAL=
+hyprutils_LIBS_L:INTERNAL=
+hyprutils_LIBS_OTHER:INTERNAL=
+hyprutils_LIBS_PATHS:INTERNAL=
+hyprutils_MODULE_NAME:INTERNAL=hyprutils
+hyprutils_PREFIX:INTERNAL=/usr
+hyprutils_STATIC_CFLAGS:INTERNAL=-I/usr/include
+hyprutils_STATIC_CFLAGS_I:INTERNAL=
+hyprutils_STATIC_CFLAGS_OTHER:INTERNAL=
+hyprutils_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include
+hyprutils_STATIC_LDFLAGS:INTERNAL=-L/usr/lib64;-lhyprutils
+hyprutils_STATIC_LDFLAGS_OTHER:INTERNAL=
+hyprutils_STATIC_LIBDIR:INTERNAL=
+hyprutils_STATIC_LIBRARIES:INTERNAL=hyprutils
+hyprutils_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib64
+hyprutils_STATIC_LIBS:INTERNAL=
+hyprutils_STATIC_LIBS_L:INTERNAL=
+hyprutils_STATIC_LIBS_OTHER:INTERNAL=
+hyprutils_STATIC_LIBS_PATHS:INTERNAL=
+hyprutils_VERSION:INTERNAL=0.7.1
+hyprutils_hyprutils_INCLUDEDIR:INTERNAL=
+hyprutils_hyprutils_LIBDIR:INTERNAL=
+hyprutils_hyprutils_PREFIX:INTERNAL=
+hyprutils_hyprutils_VERSION:INTERNAL=
+libdrm_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/libdrm
+libdrm_CFLAGS_I:INTERNAL=
+libdrm_CFLAGS_OTHER:INTERNAL=
+libdrm_FOUND:INTERNAL=1
+libdrm_INCLUDEDIR:INTERNAL=/usr/include
+libdrm_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/libdrm
+libdrm_LDFLAGS:INTERNAL=-L/usr/lib64;-ldrm
+libdrm_LDFLAGS_OTHER:INTERNAL=
+libdrm_LIBDIR:INTERNAL=/usr/lib64
+libdrm_LIBRARIES:INTERNAL=drm
+libdrm_LIBRARY_DIRS:INTERNAL=/usr/lib64
+libdrm_LIBS:INTERNAL=
+libdrm_LIBS_L:INTERNAL=
+libdrm_LIBS_OTHER:INTERNAL=
+libdrm_LIBS_PATHS:INTERNAL=
+libdrm_MODULE_NAME:INTERNAL=libdrm
+libdrm_PREFIX:INTERNAL=/usr
+libdrm_STATIC_CFLAGS:INTERNAL=-I/usr/include;-I/usr/include/libdrm
+libdrm_STATIC_CFLAGS_I:INTERNAL=
+libdrm_STATIC_CFLAGS_OTHER:INTERNAL=
+libdrm_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include;/usr/include/libdrm
+libdrm_STATIC_LDFLAGS:INTERNAL=-L/usr/lib64;-ldrm
+libdrm_STATIC_LDFLAGS_OTHER:INTERNAL=
+libdrm_STATIC_LIBDIR:INTERNAL=
+libdrm_STATIC_LIBRARIES:INTERNAL=drm
+libdrm_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib64
+libdrm_STATIC_LIBS:INTERNAL=
+libdrm_STATIC_LIBS_L:INTERNAL=
+libdrm_STATIC_LIBS_OTHER:INTERNAL=
+libdrm_STATIC_LIBS_PATHS:INTERNAL=
+libdrm_VERSION:INTERNAL=2.4.124
+libdrm_libdrm_INCLUDEDIR:INTERNAL=
+libdrm_libdrm_LIBDIR:INTERNAL=
+libdrm_libdrm_PREFIX:INTERNAL=
+libdrm_libdrm_VERSION:INTERNAL=
+pixman_CFLAGS:INTERNAL=-I/usr/include/pixman-1
+pixman_CFLAGS_I:INTERNAL=
+pixman_CFLAGS_OTHER:INTERNAL=
+pixman_FOUND:INTERNAL=1
+pixman_INCLUDEDIR:INTERNAL=/usr/include
+pixman_INCLUDE_DIRS:INTERNAL=/usr/include/pixman-1
+pixman_LDFLAGS:INTERNAL=-L/usr/lib64;-lpixman-1
+pixman_LDFLAGS_OTHER:INTERNAL=
+pixman_LIBDIR:INTERNAL=/usr/lib64
+pixman_LIBRARIES:INTERNAL=pixman-1
+pixman_LIBRARY_DIRS:INTERNAL=/usr/lib64
+pixman_LIBS:INTERNAL=
+pixman_LIBS_L:INTERNAL=
+pixman_LIBS_OTHER:INTERNAL=
+pixman_LIBS_PATHS:INTERNAL=
+pixman_MODULE_NAME:INTERNAL=pixman-1
+pixman_PREFIX:INTERNAL=/usr
+pixman_STATIC_CFLAGS:INTERNAL=-I/usr/include/pixman-1
+pixman_STATIC_CFLAGS_I:INTERNAL=
+pixman_STATIC_CFLAGS_OTHER:INTERNAL=
+pixman_STATIC_INCLUDE_DIRS:INTERNAL=/usr/include/pixman-1
+pixman_STATIC_LDFLAGS:INTERNAL=-L/usr/lib64;-lpixman-1;-lm;-pthread
+pixman_STATIC_LDFLAGS_OTHER:INTERNAL=-pthread
+pixman_STATIC_LIBDIR:INTERNAL=
+pixman_STATIC_LIBRARIES:INTERNAL=pixman-1;m
+pixman_STATIC_LIBRARY_DIRS:INTERNAL=/usr/lib64
+pixman_STATIC_LIBS:INTERNAL=
+pixman_STATIC_LIBS_L:INTERNAL=
+pixman_STATIC_LIBS_OTHER:INTERNAL=
+pixman_STATIC_LIBS_PATHS:INTERNAL=
+pixman_VERSION:INTERNAL=0.44.2
+pixman_pixman-1_INCLUDEDIR:INTERNAL=
+pixman_pixman-1_LIBDIR:INTERNAL=
+pixman_pixman-1_PREFIX:INTERNAL=
+pixman_pixman-1_VERSION:INTERNAL=
+//ADVANCED property for variable: pkgcfg_lib_hyprlang_hyprlang
+pkgcfg_lib_hyprlang_hyprlang-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_hyprutils_hyprutils
+pkgcfg_lib_hyprutils_hyprutils-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_libdrm_drm
+pkgcfg_lib_libdrm_drm-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: pkgcfg_lib_pixman_pixman-1
+pkgcfg_lib_pixman_pixman-1-ADVANCED:INTERNAL=1
 prefix_result:INTERNAL=/usr/lib64
 
