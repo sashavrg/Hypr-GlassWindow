@@ -20,6 +20,7 @@ pkg_check_modules(LIBDRM REQUIRED libdrm)
 
 # Create plugin library
 add_library(glasswindow SHARED
+    src/main.cpp
     src/glasswindow.cpp
 )
 

@@ -46,12 +46,17 @@ public:
     // Helper for shader uniform setting
     void setShaderUniforms(CRenderInstance* pRenderer);
 
+    // Render callback
+    void onRender();
+
 private:
     CGlassWindow() = default;
     ~CGlassWindow() = default;
 
     CGlassWindow(const CGlassWindow&) = delete;
     CGlassWindow& operator=(const CGlassWindow&) = delete;
+
+    void parseRules(const std::string& rulesStr);
 
     GlassConfig m_config;
     std::unordered_set<PHLWINDOW> m_glassWindows;

@@ -36,21 +36,34 @@
 
 ## configuration
 
-- plugin:glasswindow:strength (float): Overall effect strength
+Add these settings to your `~/.config/hypr/hyprland.conf`:
 
-- plugin:glasswindow:blur_radius (int): Blur radius for the glass effect
+- **plugin:glasswindow:strength** (float, default: 0.5): Overall blur effect strength (0.0 - 1.0)
 
-- plugin:glasswindow:chromatic (int): Enable chromatic aberration (0 or 1)
+- **plugin:glasswindow:blur_step** (float, default: 0.01): UV step size for blur sampling
 
-- plugin:glasswindow:chromatic_strength (float): Chromatic aberration strength
+- **plugin:glasswindow:chromatic** (int, default: 0): Enable chromatic aberration (0 = disabled, 1 = enabled)
 
-- plugin:glasswindow:brightness (float): Brightness adjustment
+- **plugin:glasswindow:chromatic_strength** (float, default: 0.005): Chromatic aberration offset strength
 
-- plugin:glasswindow:contrast (float): Contrast adjustment
+- **plugin:glasswindow:alpha** (float, default: 1.0): Overall transparency (0.0 = fully transparent, 1.0 = opaque)
 
-- plugin:glasswindow:saturation (float): Saturation adjustment
+- **plugin:glasswindow:rules** (string): Semicolon-separated regex patterns for window class/title matching
 
-- plugin:glasswindow:rules (array of strings): Window class/title patterns to apply the effect
+### example configuration
+
+```conf
+plugin {
+    glasswindow {
+        strength = 0.7
+        blur_step = 0.01
+        chromatic = 1
+        chromatic_strength = 0.008
+        alpha = 0.95
+        rules = ^(kitty|alacritty)$;^Mozilla Firefox$
+    }
+}
+```
 
 ## development
 
